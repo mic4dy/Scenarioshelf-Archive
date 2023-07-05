@@ -107,3 +107,4 @@ coverage/
 **/android/**/google-services.json
 **/ios/**/GoogleService-Info.plist
 **/lib/**/firebase_options.dart
+**/android/app/src/main/res/mipmap*/
