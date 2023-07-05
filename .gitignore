@@ -53,7 +53,6 @@ app.*.map.json
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 **/android/app/src/main/res/mipmap*/
-**/android/app/google-services.json
 *.jks
 
 # iOS/XCode related
@@ -86,8 +85,7 @@ app.*.map.json
 **/ios/Flutter/DartDefines.xcconfig
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
-**/ios/GoogleService-Info.plist
-**/ios/firebase_app_id_file.json
+**/ios/**/firebase_app_id_file.json
 **/ios/Podfile.lock
 **/ios/Runner.xcodeproj/project.pbxproj
 
@@ -104,3 +102,8 @@ coverage/
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Firebase
+**/android/**/google-services.json
+**/ios/**/GoogleService-Info.plist
+**/lib/**/firebase_options.dart
