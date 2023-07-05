@@ -10,15 +10,31 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Design
   cupertino_icons: ^1.0.2
+
+  # Firebase
   firebase_core: ^2.14.0
+
+  # State management
+  flutter_riverpod: ^2.3.6
+  riverpod_annotation: ^2.1.1
+  freezed_annotation: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Generator
+  build_runner: ^2.4.6
+  riverpod_generator: ^2.2.3
+  freezed: ^2.3.5
+  
+  # Linter
   flutter_lints: ^2.0.0
   very_good_analysis: ^5.0.0+1
+  custom_lint: ^0.4.0
+  riverpod_lint: ^1.3.2
 
 flutter:
   uses-material-design: true
