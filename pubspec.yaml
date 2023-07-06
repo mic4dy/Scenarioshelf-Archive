@@ -29,6 +29,7 @@ dev_dependencies:
   build_runner: ^2.4.6
   riverpod_generator: ^2.2.3
   freezed: ^2.3.5
+  flutter_launcher_icons: ^0.13.1
   
   # Linter
   flutter_lints: ^2.0.0
