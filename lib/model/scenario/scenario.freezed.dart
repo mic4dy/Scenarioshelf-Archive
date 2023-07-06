@@ -21,6 +21,7 @@ Scenario _$ScenarioFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Scenario {
   int get id => throw _privateConstructorUsedError;
+  TRPGSystem get system => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
@@ -36,7 +37,8 @@ abstract class $ScenarioCopyWith<$Res> {
   factory $ScenarioCopyWith(Scenario value, $Res Function(Scenario) then) =
       _$ScenarioCopyWithImpl<$Res, Scenario>;
   @useResult
-  $Res call({int id, String name, String? url, String? image});
+  $Res call(
+      {int id, TRPGSystem system, String name, String? url, String? image});
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
   @override
   $Res call({
     Object? id = null,
+    Object? system = null,
     Object? name = null,
     Object? url = freezed,
     Object? image = freezed,
@@ -62,6 +65,10 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      system: null == system
+          ? _value.system
+          : system // ignore: cast_nullable_to_non_nullable
+              as TRPGSystem,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -85,7 +92,8 @@ abstract class _$$_ScenarioCopyWith<$Res> implements $ScenarioCopyWith<$Res> {
       __$$_ScenarioCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String? url, String? image});
+  $Res call(
+      {int id, TRPGSystem system, String name, String? url, String? image});
 }
 
 /// @nodoc
@@ -100,6 +108,7 @@ class __$$_ScenarioCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? system = null,
     Object? name = null,
     Object? url = freezed,
     Object? image = freezed,
@@ -109,6 +118,10 @@ class __$$_ScenarioCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      system: null == system
+          ? _value.system
+          : system // ignore: cast_nullable_to_non_nullable
+              as TRPGSystem,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -129,13 +142,19 @@ class __$$_ScenarioCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Scenario implements _Scenario {
   const _$_Scenario(
-      {required this.id, required this.name, this.url, this.image});
+      {required this.id,
+      required this.system,
+      required this.name,
+      this.url,
+      this.image});
 
   factory _$_Scenario.fromJson(Map<String, dynamic> json) =>
       _$$_ScenarioFromJson(json);
 
   @override
   final int id;
+  @override
+  final TRPGSystem system;
   @override
   final String name;
   @override
@@ -145,7 +164,7 @@ class _$_Scenario implements _Scenario {
 
   @override
   String toString() {
-    return 'Scenario(id: $id, name: $name, url: $url, image: $image)';
+    return 'Scenario(id: $id, system: $system, name: $name, url: $url, image: $image)';
   }
 
   @override
@@ -154,6 +173,7 @@ class _$_Scenario implements _Scenario {
         (other.runtimeType == runtimeType &&
             other is _$_Scenario &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.system, system) || other.system == system) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.image, image) || other.image == image));
@@ -161,7 +181,7 @@ class _$_Scenario implements _Scenario {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, url, image);
+  int get hashCode => Object.hash(runtimeType, id, system, name, url, image);
 
   @JsonKey(ignore: true)
   @override
@@ -180,6 +200,7 @@ class _$_Scenario implements _Scenario {
 abstract class _Scenario implements Scenario {
   const factory _Scenario(
       {required final int id,
+      required final TRPGSystem system,
       required final String name,
       final String? url,
       final String? image}) = _$_Scenario;
@@ -188,6 +209,8 @@ abstract class _Scenario implements Scenario {
 
   @override
   int get id;
+  @override
+  TRPGSystem get system;
   @override
   String get name;
   @override
