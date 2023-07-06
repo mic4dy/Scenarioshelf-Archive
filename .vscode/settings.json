@@ -4,4 +4,10 @@
         "**/.fvm": true
     },
     "dart.lineLength": 200,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true,
+        "source.addMissingImports": true
+    },
 }
