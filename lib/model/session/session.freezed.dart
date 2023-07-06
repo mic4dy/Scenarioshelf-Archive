@@ -22,6 +22,7 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 mixin _$Session {
   int get id => throw _privateConstructorUsedError;
   Scenario get scenario => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
   String? get charactor => throw _privateConstructorUsedError;
   String? get memo => throw _privateConstructorUsedError;
 
@@ -35,7 +36,12 @@ abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
-  $Res call({int id, Scenario scenario, String? charactor, String? memo});
+  $Res call(
+      {int id,
+      Scenario scenario,
+      DateTime? date,
+      String? charactor,
+      String? memo});
 
   $ScenarioCopyWith<$Res> get scenario;
 }
@@ -55,6 +61,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   $Res call({
     Object? id = null,
     Object? scenario = null,
+    Object? date = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -67,6 +74,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.scenario
           : scenario // ignore: cast_nullable_to_non_nullable
               as Scenario,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       charactor: freezed == charactor
           ? _value.charactor
           : charactor // ignore: cast_nullable_to_non_nullable
@@ -94,7 +105,12 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       __$$_SessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, Scenario scenario, String? charactor, String? memo});
+  $Res call(
+      {int id,
+      Scenario scenario,
+      DateTime? date,
+      String? charactor,
+      String? memo});
 
   @override
   $ScenarioCopyWith<$Res> get scenario;
@@ -112,6 +128,7 @@ class __$$_SessionCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? scenario = null,
+    Object? date = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -124,6 +141,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.scenario
           : scenario // ignore: cast_nullable_to_non_nullable
               as Scenario,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       charactor: freezed == charactor
           ? _value.charactor
           : charactor // ignore: cast_nullable_to_non_nullable
@@ -140,7 +161,11 @@ class __$$_SessionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Session implements _Session {
   const _$_Session(
-      {required this.id, required this.scenario, this.charactor, this.memo});
+      {required this.id,
+      required this.scenario,
+      this.date,
+      this.charactor,
+      this.memo});
 
   factory _$_Session.fromJson(Map<String, dynamic> json) =>
       _$$_SessionFromJson(json);
@@ -150,13 +175,15 @@ class _$_Session implements _Session {
   @override
   final Scenario scenario;
   @override
+  final DateTime? date;
+  @override
   final String? charactor;
   @override
   final String? memo;
 
   @override
   String toString() {
-    return 'Session(id: $id, scenario: $scenario, charactor: $charactor, memo: $memo)';
+    return 'Session(id: $id, scenario: $scenario, date: $date, charactor: $charactor, memo: $memo)';
   }
 
   @override
@@ -167,6 +194,7 @@ class _$_Session implements _Session {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.scenario, scenario) ||
                 other.scenario == scenario) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.charactor, charactor) ||
                 other.charactor == charactor) &&
             (identical(other.memo, memo) || other.memo == memo));
@@ -174,7 +202,8 @@ class _$_Session implements _Session {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, scenario, charactor, memo);
+  int get hashCode =>
+      Object.hash(runtimeType, id, scenario, date, charactor, memo);
 
   @JsonKey(ignore: true)
   @override
@@ -194,6 +223,7 @@ abstract class _Session implements Session {
   const factory _Session(
       {required final int id,
       required final Scenario scenario,
+      final DateTime? date,
       final String? charactor,
       final String? memo}) = _$_Session;
 
@@ -203,6 +233,8 @@ abstract class _Session implements Session {
   int get id;
   @override
   Scenario get scenario;
+  @override
+  DateTime? get date;
   @override
   String? get charactor;
   @override

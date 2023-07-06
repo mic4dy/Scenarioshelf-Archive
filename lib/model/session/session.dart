@@ -8,6 +8,7 @@ class Session with _$Session {
   const factory Session({
     required int id,
     required Scenario scenario,
+    DateTime? date,
     String? charactor,
     String? memo,
   }) = _Session;
