@@ -1,18 +1,53 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'firebase_auth_remote_repository.g.dart';
 
-@riverpod
-FirebaseAuthRemoteRepository firebaseAuthRemoteRepository(FirebaseAuthRemoteRepositoryRef ref) {
-  final instanse = FirebaseAuth.instance;
-  return FirebaseAuthRemoteRepository(instance: instanse);
+@Riverpod(keepAlive: true)
+FirebaseAuthAPI firebaseAuthRemoteRepository(FirebaseAuthRemoteRepositoryRef ref) => FirebaseAuthRemoteRepository();
+
+abstract class FirebaseAuthAPI {
+  Future<User> signupWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+  Future<User> signinWithGoogle();
+  User? getCurrentUser();
+  Future<void> signout();
 }
 
-abstract class FirebaseAuthAPI {}
-
 class FirebaseAuthRemoteRepository extends FirebaseAuthAPI {
-  FirebaseAuthRemoteRepository({required this.instance});
+  @override
+  Future<User> signupWithEmailAndPassword({required String email, required String password}) async {
+    final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
 
-  final FirebaseAuth instance;
+    if (credential.user == null) throw FirebaseAuthException(code: 'user-null');
+
+    return credential.user!;
+  }
+
+  @override
+  Future<User> signinWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    final OAuthCredential oauthCredential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    final credential = await FirebaseAuth.instance.signInWithCredential(oauthCredential);
+
+    if (credential.user == null) throw FirebaseAuthException(code: 'user-null');
+
+    return credential.user!;
+  }
+
+  @override
+  User? getCurrentUser() => FirebaseAuth.instance.currentUser;
+
+  @override
+  Future<void> signout() => FirebaseAuth.instance.signOut();
 }

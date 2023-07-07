@@ -7,12 +7,11 @@ part of 'firebase_auth_remote_repository.dart';
 // **************************************************************************
 
 String _$firebaseAuthRemoteRepositoryHash() =>
-    r'31d1f920896c398a4e910853801f13a2051c23ff';
+    r'14e39df685801fe461ff8a4e369df1b5ab7043b1';
 
 /// See also [firebaseAuthRemoteRepository].
 @ProviderFor(firebaseAuthRemoteRepository)
-final firebaseAuthRemoteRepositoryProvider =
-    AutoDisposeProvider<FirebaseAuthRemoteRepository>.internal(
+final firebaseAuthRemoteRepositoryProvider = Provider<FirebaseAuthAPI>.internal(
   firebaseAuthRemoteRepository,
   name: r'firebaseAuthRemoteRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +21,5 @@ final firebaseAuthRemoteRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
-typedef FirebaseAuthRemoteRepositoryRef
-    = AutoDisposeProviderRef<FirebaseAuthRemoteRepository>;
+typedef FirebaseAuthRemoteRepositoryRef = ProviderRef<FirebaseAuthAPI>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
