@@ -24,6 +24,6 @@ class _Text {
   final Color appBarTitle = const Color(0xFF373737);
   final Color gray = const Color(0xFF808080);
   final Color blackMid = const Color(0x61000000);
-  final Color white = const Color(0xFFFFFFFF);
-  final Color blue = const Color(0xFF448AFF);
+  final Color white = const Color(0xFFffffff);
+  final Color blue = const Color(0xFF448aff);
 }
