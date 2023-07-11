@@ -28,6 +28,7 @@ dependencies:
   # Other
   intl: ^0.18.1
   google_sign_in: ^6.1.4
+  email_validator: ^2.1.17
 
 dev_dependencies:
   flutter_test:
