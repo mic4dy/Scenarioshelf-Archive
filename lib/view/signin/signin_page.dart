@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scenarioshelf/constant/app_color.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});

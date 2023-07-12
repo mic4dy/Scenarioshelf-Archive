@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:scenarioshelf/view/boot/boot_page.dart';
 import 'package:scenarioshelf/view/home/home.dart';
-import 'package:scenarioshelf/view/signin/signin.dart';
+import 'package:scenarioshelf/view/signin/signin_page.dart';
 
 part 'router.g.dart';
 
@@ -12,7 +13,11 @@ GoRouter router(RouterRef ref) {
     routes: [
       GoRoute(
         path: '/splash',
-        redirect: (context, state) => '/signin',
+        redirect: (context, state) => '/boot',
+      ),
+      GoRoute(
+        path: '/boot',
+        builder: (context, state) => const BootPage(),
       ),
       GoRoute(
         path: '/signin',
