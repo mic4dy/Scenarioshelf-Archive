@@ -19,6 +19,7 @@ class BootOptionButton extends StatelessWidget {
     return BootOptionButton(
       onPressed: onPressed,
       buttonStyle: OutlinedButton.styleFrom(
+        splashFactory: NoSplash.splashFactory,
         side: BorderSide(
           color: AppColor.brand.secondary,
           width: 0.5,
@@ -47,6 +48,7 @@ class BootOptionButton extends StatelessWidget {
     return BootOptionButton(
       onPressed: onPressed,
       buttonStyle: OutlinedButton.styleFrom(
+        splashFactory: NoSplash.splashFactory,
         side: BorderSide(
           color: AppColor.brand.secondary,
           width: 0.5,
@@ -76,6 +78,7 @@ class BootOptionButton extends StatelessWidget {
     return BootOptionButton(
       onPressed: onPressed,
       buttonStyle: OutlinedButton.styleFrom(
+        splashFactory: NoSplash.splashFactory,
         side: BorderSide(
           color: AppColor.brand.secondary,
           width: 0.5,

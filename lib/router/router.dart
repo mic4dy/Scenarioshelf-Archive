@@ -2,24 +2,30 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:scenarioshelf/view/boot/boot_page.dart';
 import 'package:scenarioshelf/view/signin/signin_page.dart';
+import 'package:scenarioshelf/view/signup/signup_page.dart';
 
+part 'routes.dart';
 part 'router.g.dart';
 
 @riverpod
 GoRouter router(RouterRef ref) {
   return GoRouter(
-    initialLocation: '/splash',
+    initialLocation: Routes.splash.path,
     routes: [
       GoRoute(
-        path: '/splash',
-        redirect: (context, state) => '/boot',
+        path: Routes.splash.path,
+        redirect: (context, state) => Routes.boot.path,
       ),
       GoRoute(
-        path: '/boot',
+        path: Routes.boot.path,
         builder: (context, state) => const BootPage(),
       ),
       GoRoute(
-        path: '/signin',
+        path: Routes.signup.path,
+        builder: (context, state) => const SignupPage(),
+      ),
+      GoRoute(
+        path: Routes.signin.path,
         builder: (context, state) => const SigninPage(),
       ),
     ],
