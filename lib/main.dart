@@ -42,20 +42,20 @@ class Scenarioshelf extends ConsumerWidget {
       fontFamily: 'IBMPlexSansJP',
       scaffoldBackgroundColor: AppColor.ui.white,
       colorScheme: Theme.of(context).colorScheme.copyWith(
-            primary: AppColor.brand.primary,
-            secondary: AppColor.brand.secondary,
-          ),
+        primary: AppColor.brand.primary,
+        secondary: AppColor.brand.secondary,
+      ),
       textTheme: Theme.of(context).textTheme.copyWith(
-            bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontWeight: FontWeight.w300,
-                ),
-            bodyMedium: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w300,
-                ),
-            bodyLarge: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w300,
-                ),
-          ),
+        bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
+          fontWeight: FontWeight.w300,
+        ),
+        bodyMedium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w300,
+        ),
+        bodyLarge: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          fontWeight: FontWeight.w300,
+        ),
+      ),
     );
 
     return MaterialApp.router(

@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:scenarioshelf/view/boot/boot_page.dart';
-import 'package:scenarioshelf/view/home/home.dart';
 import 'package:scenarioshelf/view/signin/signin_page.dart';
 
 part 'router.g.dart';
@@ -22,10 +21,6 @@ GoRouter router(RouterRef ref) {
       GoRoute(
         path: '/signin',
         builder: (context, state) => const SigninPage(),
-      ),
-      GoRoute(
-        path: '/home',
-        builder: (context, state) => const Home(),
       ),
     ],
   );
