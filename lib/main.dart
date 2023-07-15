@@ -43,7 +43,7 @@ class Scenarioshelf extends ConsumerWidget {
       scaffoldBackgroundColor: AppColor.ui.white,
       colorScheme: Theme.of(context).colorScheme.copyWith(
         primary: AppColor.brand.primary,
-        secondary: AppColor.brand.secondary,
+        secondary: AppColor.brand.primaryLight,
       ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(

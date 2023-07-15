@@ -21,7 +21,7 @@ class BootOptionButton extends StatelessWidget {
       buttonStyle: OutlinedButton.styleFrom(
         splashFactory: NoSplash.splashFactory,
         side: BorderSide(
-          color: AppColor.brand.secondary,
+          color: AppColor.brand.primary,
           width: 0.5,
         ),
         backgroundColor: AppColor.ui.white,
@@ -31,7 +31,7 @@ class BootOptionButton extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          color: AppColor.brand.secondary,
+          color: AppColor.brand.primary,
           fontWeight: FontWeight.w300,
           letterSpacing: textLetterSpace,
         ),
@@ -50,10 +50,10 @@ class BootOptionButton extends StatelessWidget {
       buttonStyle: OutlinedButton.styleFrom(
         splashFactory: NoSplash.splashFactory,
         side: BorderSide(
-          color: AppColor.brand.secondary,
+          color: AppColor.brand.primary,
           width: 0.5,
         ),
-        backgroundColor: AppColor.brand.secondary,
+        backgroundColor: AppColor.brand.primary,
         shape: const StadiumBorder(),
         minimumSize: size,
       ),
@@ -80,7 +80,7 @@ class BootOptionButton extends StatelessWidget {
       buttonStyle: OutlinedButton.styleFrom(
         splashFactory: NoSplash.splashFactory,
         side: BorderSide(
-          color: AppColor.brand.secondary,
+          color: AppColor.brand.primary,
           width: 0.5,
         ),
         backgroundColor: AppColor.ui.white,
@@ -91,11 +91,11 @@ class BootOptionButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           icon,
-          const SizedBox(width: MarginSize.normal),
+          const SizedBox(width: MarginSize.small),
           Text(
             label,
             style: TextStyle(
-              color: AppColor.brand.secondary,
+              color: AppColor.brand.primary,
               fontWeight: FontWeight.w300,
               letterSpacing: textLetterSpace,
             ),
