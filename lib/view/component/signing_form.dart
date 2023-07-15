@@ -5,6 +5,7 @@ class SigningForm extends StatelessWidget {
     this.onChanged,
     this.obscureText = false,
     this.decoration,
+    this.textInputType,
     super.key,
   });
 
@@ -17,6 +18,7 @@ class SigningForm extends StatelessWidget {
       floatingLabelBehavior: FloatingLabelBehavior.always,
       labelText: 'メールアドレス',
     ),
+    textInputType: TextInputType.emailAddress,
   );
 
   factory SigningForm.password({
@@ -33,12 +35,14 @@ class SigningForm extends StatelessWidget {
         labelText: 'パスワード',
         suffixIcon: suffixIcon,
       ),
+      textInputType: TextInputType.visiblePassword,
     );
   }
 
   final void Function(String)? onChanged;
   final bool obscureText;
   final InputDecoration? decoration;
+  final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +54,7 @@ class SigningForm extends StatelessWidget {
         fontWeight: FontWeight.w300,
         height: 1,
       ),
+      keyboardType: textInputType,
     );
   }
 }

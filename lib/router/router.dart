@@ -4,8 +4,8 @@ import 'package:scenarioshelf/view/boot/boot_page.dart';
 import 'package:scenarioshelf/view/signin/signin_page.dart';
 import 'package:scenarioshelf/view/signup/signup_page.dart';
 
-part 'routes.dart';
 part 'router.g.dart';
+part 'routes.dart';
 
 @riverpod
 GoRouter router(RouterRef ref) {
