@@ -6,11 +6,13 @@ class SigningForm extends StatelessWidget {
     this.obscureText = false,
     this.decoration,
     this.textInputType,
+    this.validator,
     super.key,
   });
 
   factory SigningForm.email({
     void Function(String)? onChanged,
+    String? Function(String?)? validator,
   }) => SigningForm(
     onChanged: onChanged,
     decoration: const InputDecoration(
@@ -19,12 +21,14 @@ class SigningForm extends StatelessWidget {
       labelText: 'メールアドレス',
     ),
     textInputType: TextInputType.emailAddress,
+    validator: validator,
   );
 
   factory SigningForm.password({
     void Function(String)? onChanged,
     bool isObscure = true,
     Widget? suffixIcon,
+    String? Function(String?)? validator,
   }) {
     return SigningForm(
       onChanged: onChanged,
@@ -34,8 +38,10 @@ class SigningForm extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelText: 'パスワード',
         suffixIcon: suffixIcon,
+        suffixIconConstraints: const BoxConstraints(),
       ),
       textInputType: TextInputType.visiblePassword,
+      validator: validator,
     );
   }
 
@@ -43,6 +49,7 @@ class SigningForm extends StatelessWidget {
   final bool obscureText;
   final InputDecoration? decoration;
   final TextInputType? textInputType;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +62,7 @@ class SigningForm extends StatelessWidget {
         height: 1,
       ),
       keyboardType: textInputType,
+      validator: validator,
     );
   }
 }

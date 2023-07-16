@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SigningState {
+  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get isObscure => throw _privateConstructorUsedError;
-  String get validationErrorText => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SigningStateCopyWith<SigningState> get copyWith =>
@@ -33,10 +33,10 @@ abstract class $SigningStateCopyWith<$Res> {
       _$SigningStateCopyWithImpl<$Res, SigningState>;
   @useResult
   $Res call(
-      {String email,
+      {GlobalKey<FormState> formKey,
+      String email,
       String password,
-      bool isObscure,
-      String validationErrorText});
+      bool isObscure});
 }
 
 /// @nodoc
@@ -52,12 +52,16 @@ class _$SigningStateCopyWithImpl<$Res, $Val extends SigningState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = null,
     Object? email = null,
     Object? password = null,
     Object? isObscure = null,
-    Object? validationErrorText = null,
   }) {
     return _then(_value.copyWith(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -70,10 +74,6 @@ class _$SigningStateCopyWithImpl<$Res, $Val extends SigningState>
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
-      validationErrorText: null == validationErrorText
-          ? _value.validationErrorText
-          : validationErrorText // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -87,10 +87,10 @@ abstract class _$$_SigningStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String email,
+      {GlobalKey<FormState> formKey,
+      String email,
       String password,
-      bool isObscure,
-      String validationErrorText});
+      bool isObscure});
 }
 
 /// @nodoc
@@ -104,12 +104,16 @@ class __$$_SigningStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = null,
     Object? email = null,
     Object? password = null,
     Object? isObscure = null,
-    Object? validationErrorText = null,
   }) {
     return _then(_$_SigningState(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -122,10 +126,6 @@ class __$$_SigningStateCopyWithImpl<$Res>
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
-      validationErrorText: null == validationErrorText
-          ? _value.validationErrorText
-          : validationErrorText // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -134,11 +134,13 @@ class __$$_SigningStateCopyWithImpl<$Res>
 
 class _$_SigningState implements _SigningState {
   const _$_SigningState(
-      {this.email = '',
+      {required this.formKey,
+      this.email = '',
       this.password = '',
-      this.isObscure = true,
-      this.validationErrorText = ''});
+      this.isObscure = true});
 
+  @override
+  final GlobalKey<FormState> formKey;
   @override
   @JsonKey()
   final String email;
@@ -148,13 +150,10 @@ class _$_SigningState implements _SigningState {
   @override
   @JsonKey()
   final bool isObscure;
-  @override
-  @JsonKey()
-  final String validationErrorText;
 
   @override
   String toString() {
-    return 'SigningState(email: $email, password: $password, isObscure: $isObscure, validationErrorText: $validationErrorText)';
+    return 'SigningState(formKey: $formKey, email: $email, password: $password, isObscure: $isObscure)';
   }
 
   @override
@@ -162,18 +161,17 @@ class _$_SigningState implements _SigningState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SigningState &&
+            (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.isObscure, isObscure) ||
-                other.isObscure == isObscure) &&
-            (identical(other.validationErrorText, validationErrorText) ||
-                other.validationErrorText == validationErrorText));
+                other.isObscure == isObscure));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, email, password, isObscure, validationErrorText);
+      Object.hash(runtimeType, formKey, email, password, isObscure);
 
   @JsonKey(ignore: true)
   @override
@@ -184,19 +182,19 @@ class _$_SigningState implements _SigningState {
 
 abstract class _SigningState implements SigningState {
   const factory _SigningState(
-      {final String email,
+      {required final GlobalKey<FormState> formKey,
+      final String email,
       final String password,
-      final bool isObscure,
-      final String validationErrorText}) = _$_SigningState;
+      final bool isObscure}) = _$_SigningState;
 
+  @override
+  GlobalKey<FormState> get formKey;
   @override
   String get email;
   @override
   String get password;
   @override
   bool get isObscure;
-  @override
-  String get validationErrorText;
   @override
   @JsonKey(ignore: true)
   _$$_SigningStateCopyWith<_$_SigningState> get copyWith =>
