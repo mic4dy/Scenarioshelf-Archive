@@ -5,7 +5,7 @@ import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/state/signing/signing_state.dart';
 import 'package:scenarioshelf/view/boot/boot_option_button.dart';
-import 'package:scenarioshelf/view/component/signing_form.dart';
+import 'package:scenarioshelf/view/signing/signing_form.dart';
 import 'package:scenarioshelf/view_model/page/signing/signing_view_model.dart';
 
 class SignupPage extends ConsumerWidget {

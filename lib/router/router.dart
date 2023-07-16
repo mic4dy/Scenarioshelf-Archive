@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:scenarioshelf/view/boot/boot_page.dart';
-import 'package:scenarioshelf/view/signin/signin_page.dart';
-import 'package:scenarioshelf/view/signup/signup_page.dart';
+import 'package:scenarioshelf/view/signing/signin/signin_page.dart';
+import 'package:scenarioshelf/view/signing/signup/signup_page.dart';
 
 part 'router.g.dart';
 part 'routes.dart';
