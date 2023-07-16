@@ -18,55 +18,64 @@ class SignupPage extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                margin: const EdgeInsets.all(MarginSize.small),
-                child: FloatingActionButton.small(
-                  onPressed: () => ref.read(routerProvider).pop(),
-                  backgroundColor: AppColor.brand.primary,
-                  elevation: 0,
-                  child: const Icon(Icons.clear),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.1,
+          ),
+          child: Column(
+            children: [
+              const Spacer(flex: 2),
+              Image.asset(
+                'assets/images/logo/logo.png',
+                width: size.width * 0.4,
+              ),
+              const Spacer(flex: 2),
+              SigningForm.email(),
+              const SizedBox(height: MarginSize.large),
+              SigningForm.password(
+                isObscure: state.isObscure,
+                suffixIcon: IconButton(
+                  onPressed: () => ref.read(signingViewModelProvider.notifier).onTapObscureIcon(),
+                  icon: Icon(state.isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined),
+                  iconSize: 18,
+                  splashRadius: 20,
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: size.width * 0.1,
-              ),
-              child: Column(
-                children: [
-                  const Spacer(flex: 2),
-                  Image.asset(
-                    'assets/images/logo/logo.png',
-                    width: size.width * 0.4,
-                  ),
-                  const Spacer(flex: 2),
-                  SigningForm.email(),
-                  const SizedBox(height: MarginSize.large),
-                  SigningForm.password(
-                    isObscure: state.isObscure,
-                    suffixIcon: IconButton(
-                      onPressed: () => ref.read(signingViewModelProvider.notifier).onTapObscureIcon(),
-                      icon: Icon(state.isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined),
-                      iconSize: 18,
-                      splashRadius: 20,
+              const Spacer(flex: 2),
+              SizedBox(
+                height: 40,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FloatingActionButton.small(
+                      onPressed: () => ref.read(routerProvider).pop(),
+                      backgroundColor: AppColor.ui.white,
+                      splashColor: Colors.transparent,
+                      focusColor: AppColor.brand.primaryLight,
+                      elevation: 0,
+                      highlightElevation: 0,
+                      shape: CircleBorder(
+                        side: BorderSide(
+                          color: AppColor.brand.primary,
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.arrow_back_sharp,
+                        color: AppColor.brand.primary,
+                      ),
                     ),
-                  ),
-                  const Spacer(flex: 2),
-                  BootOptionButton.dark(
-                    onPressed: () {},
-                    label: '登録',
-                    textLetterSpace: SpaceSize.bootOptionButtonLetterSpace,
-                    size: Size(size.width * 0.8, 40),
-                  ),
-                  const Spacer(),
-                ],
+                    BootOptionButton.dark(
+                      onPressed: () {},
+                      label: '登録',
+                      textLetterSpace: SpaceSize.bootOptionButtonLetterSpace,
+                      size: Size(size.width * 0.8 - 64, 40),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
