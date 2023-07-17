@@ -5,8 +5,10 @@ import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/state/signing/signing_state.dart';
 import 'package:scenarioshelf/view/boot/boot_option_button.dart';
+import 'package:scenarioshelf/view/component/snack_bar/app_snack_bar.dart';
 import 'package:scenarioshelf/view/signing/signing_form.dart';
 import 'package:scenarioshelf/view_model/page/signing/signing_view_model.dart';
+import 'package:scenarioshelf/view_model/universal/user/user_view_model.dart';
 
 class SigningPage extends ConsumerWidget {
   const SigningPage({
@@ -20,6 +22,20 @@ class SigningPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final Size size = MediaQuery.of(context).size;
     final SigningState state = ref.watch(signingViewModelProvider);
+
+    ref.listen(
+      userViewModelProvider,
+      (previous, next) {
+        if (previous is AsyncData && next is AsyncLoading) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            AppSnackBar.loading(content: const Text('ユーザを登録中です')),
+          );
+        }
+      },
+      onError: (error, stackTrace) => ScaffoldMessenger.of(context).showSnackBar(
+        AppSnackBar.error(content: Text(error.toString())),
+      ),
+    );
 
     return Scaffold(
       body: SafeArea(
