@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/state/signing/signing_state.dart';
 import 'package:scenarioshelf/view_model/universal/user/user_view_model.dart';
 
@@ -50,6 +51,6 @@ class SigningViewModel extends _$SigningViewModel {
       password: state.password,
     );
 
-    // ref.read(routerProvider).go('/home');
+    ref.read(routerProvider).go('/home');
   }
 }
