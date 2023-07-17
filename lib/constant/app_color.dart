@@ -24,4 +24,5 @@ class _UI {
 class _Text {
   final Color white = const Color(0xFFffffff);
   final Color error = const Color(0xFFc46a26);
+  final Color snackBar = const Color(0xFF333333);
 }

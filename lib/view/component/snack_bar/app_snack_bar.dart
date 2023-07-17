@@ -8,13 +8,17 @@ class AppSnackBar extends SnackBar {
     this.color,
     super.key,
   }) : super(
-    margin: const EdgeInsets.all(MarginSize.middle),
-    padding: const EdgeInsets.symmetric(horizontal: PaddingSize.middle),
+    padding: const EdgeInsets.only(left: PaddingSize.middle),
     behavior: SnackBarBehavior.floating,
     elevation: 4,
     shape: RoundedRectangleBorder(
+      side: BorderSide(
+        color: color != null ? color.withOpacity(0.5) : Colors.transparent,
+        width: 2,
+      ),
       borderRadius: BorderRadius.circular(ShapeSize.smallCircular),
     ),
+    backgroundColor: AppColor.ui.white,
     showCloseIcon: true,
     closeIconColor: color,
   );
@@ -29,15 +33,28 @@ class AppSnackBar extends SnackBar {
         children: [
           Icon(
             Icons.check_circle,
+            size: IconSize.snackBar,
             color: AppColor.ui.success,
           ),
+          const SizedBox(width: MarginSize.minimum),
           Text(
             'SUCCESS',
             style: TextStyle(
               color: AppColor.ui.success,
             ),
           ),
-          content,
+          const SizedBox(width: MarginSize.minimum),
+          Flexible(
+            child: DefaultTextStyle(
+              style: TextStyle(
+                color: AppColor.text.snackBar,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+                height: 1.2,
+              ),
+              child: content,
+            ),
+          ),
         ],
       ),
     ),
@@ -53,15 +70,28 @@ class AppSnackBar extends SnackBar {
         children: [
           Icon(
             Icons.pending,
+            size: IconSize.snackBar,
             color: AppColor.ui.loading,
           ),
+          const SizedBox(width: MarginSize.minimum),
           Text(
             'LOADING',
             style: TextStyle(
               color: AppColor.ui.loading,
             ),
           ),
-          content,
+          const SizedBox(width: MarginSize.minimum),
+          Flexible(
+            child: DefaultTextStyle(
+              style: TextStyle(
+                color: AppColor.text.snackBar,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+                height: 1.2,
+              ),
+              child: content,
+            ),
+          ),
         ],
       ),
     ),
@@ -71,23 +101,33 @@ class AppSnackBar extends SnackBar {
     required Widget content,
   }) => AppSnackBar(
     color: AppColor.ui.error,
-    content: Padding(
-      padding: const EdgeInsets.all(PaddingSize.small),
-      child: Row(
-        children: [
-          Icon(
-            Icons.error,
+    content: Row(
+      children: [
+        Icon(
+          Icons.error,
+          size: IconSize.snackBar,
+          color: AppColor.ui.error,
+        ),
+        const SizedBox(width: MarginSize.minimum),
+        Text(
+          'ERROR',
+          style: TextStyle(
             color: AppColor.ui.error,
           ),
-          Text(
-            'ERROR',
+        ),
+        const SizedBox(width: MarginSize.minimum),
+        Flexible(
+          child: DefaultTextStyle(
             style: TextStyle(
-              color: AppColor.ui.error,
+              color: AppColor.text.snackBar,
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+              height: 1.2,
             ),
+            child: content,
           ),
-          content,
-        ],
-      ),
+        ),
+      ],
     ),
   );
 

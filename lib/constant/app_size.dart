@@ -19,3 +19,7 @@ class SpaceSize {
 class ShapeSize {
   static const double smallCircular = 8;
 }
+
+class IconSize {
+  static const double snackBar = 16;
+}
