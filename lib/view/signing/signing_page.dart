@@ -4,6 +4,7 @@ import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/state/signing/signing_state.dart';
+import 'package:scenarioshelf/util/exception/signing_exception.dart';
 import 'package:scenarioshelf/view/boot/boot_option_button.dart';
 import 'package:scenarioshelf/view/component/snack_bar/app_snack_bar.dart';
 import 'package:scenarioshelf/view/signing/signing_form.dart';
@@ -23,19 +24,30 @@ class SigningPage extends ConsumerWidget {
     final Size size = MediaQuery.of(context).size;
     final SigningState state = ref.watch(signingViewModelProvider);
 
-    ref.listen(
-      userViewModelProvider,
-      (previous, next) {
-        if (previous is AsyncData && next is AsyncLoading) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            AppSnackBar.loading(content: const Text('ユーザを登録中です')),
-          );
+    ref.listen(userViewModelProvider, (previous, next) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      
+      if (previous is AsyncData && next is AsyncLoading) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          AppSnackBar.loading(content: const Text('ユーザを登録中です')),
+        );
+      }
+
+      if (next is AsyncError) {
+        final Object? error = next.error;
+        final String message;
+
+        if (error is SigningException) {
+          message = error.display;
+        } else {
+          message = '原因不明のエラーが発生しました';
         }
-      },
-      onError: (error, stackTrace) => ScaffoldMessenger.of(context).showSnackBar(
-        AppSnackBar.error(content: Text(error.toString())),
-      ),
-    );
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          AppSnackBar.error(content: Text(message)),
+        );
+      }
+    });
 
     return Scaffold(
       body: SafeArea(

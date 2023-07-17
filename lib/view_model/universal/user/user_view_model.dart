@@ -46,7 +46,7 @@ class UserViewModel extends _$UserViewModel {
         state = AsyncValue.error(
           const SigningException(
             'Email is already in use (FirebaseAuthException)',
-            'メールアドレスがすでに利用されています',
+            '既に登録されたメールアドレスです',
           ),
           stack,
         );
