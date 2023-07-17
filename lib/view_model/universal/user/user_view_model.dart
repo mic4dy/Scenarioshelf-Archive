@@ -73,4 +73,61 @@ class UserViewModel extends _$UserViewModel {
       );
     }
   }
+
+  Future<void> signinWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    state = const AsyncValue.loading();
+
+    try {
+      final User user = await _authRepository.signinWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      state = AsyncValue.data(user);
+    } on FirebaseAuthException catch (error, stack) {
+      Logger().e(
+        'UserViewModel.signinWithEmailAndPassword',
+        [error, stack],
+      );
+      if (error.code == 'user-not-found') {
+        state = AsyncValue.error(
+          const SigningException(
+            'User is not found (FirebaseAuthException)',
+            'メールアドレスが正しくありません',
+          ),
+          stack,
+        );
+      } else if (error.code == 'wrong-password') {
+        state = AsyncValue.error(
+          const SigningException(
+            'Wrong password (FirebaseAuthException)',
+            'パスワードが違います',
+          ),
+          stack,
+        );
+      } else {
+        state = AsyncValue.error(
+          SigningException(
+            error.toString(),
+            'ログインに失敗しました',
+          ),
+          stack,
+        );
+      }
+    } on Exception catch (error, stack) {
+      Logger().e(
+        'UserViewModel.signinWithEmailAndPassword',
+        [error, stack],
+      );
+      state = AsyncValue.error(
+        SigningException(
+          error.toString(),
+          '原因不明のエラーが発生しました',
+        ),
+        stack,
+      );
+    }
+  }
 }

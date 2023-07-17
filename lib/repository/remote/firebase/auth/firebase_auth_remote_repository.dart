@@ -12,6 +12,10 @@ abstract class FirebaseAuthAPI {
     required String email,
     required String password,
   });
+  Future<User> signinWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
   Future<User> signinWithGoogle();
   User? getCurrentUser();
   Future<void> signout();
@@ -21,6 +25,18 @@ class FirebaseAuthRemoteRepository extends FirebaseAuthAPI {
   @override
   Future<User> signupWithEmailAndPassword({required String email, required String password}) async {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    if (credential.user == null) throw FirebaseAuthException(code: 'user-null');
+
+    return credential.user!;
+  }
+
+  @override
+  Future<User> signinWithEmailAndPassword({required String email, required String password}) async {
+    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
