@@ -51,6 +51,6 @@ class SigningViewModel extends _$SigningViewModel {
       password: state.password,
     );
 
-    ref.watch(userViewModelProvider).whenData((_) => ref.read(routerProvider).go('/home'));
+    ref.watch(userViewModelProvider).whenData((_) => ref.read(routerProvider).go(Routes.home.path));
   }
 }
