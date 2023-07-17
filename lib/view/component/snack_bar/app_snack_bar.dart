@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/constant/app_size.dart';
 
-class AppSnackBar extends StatelessWidget {
-  const AppSnackBar({
-    required this.content,
+class AppSnackBar extends SnackBar {
+  AppSnackBar({
+    required super.content,
     this.color,
     super.key,
-  });
+  }) : super(
+    margin: const EdgeInsets.all(MarginSize.middle),
+    padding: const EdgeInsets.symmetric(horizontal: PaddingSize.middle),
+    behavior: SnackBarBehavior.floating,
+    elevation: 4,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(ShapeSize.smallCircular),
+    ),
+    showCloseIcon: true,
+    closeIconColor: color,
+  );
 
   factory AppSnackBar.success({
     required Widget content,
@@ -25,6 +35,30 @@ class AppSnackBar extends StatelessWidget {
             'SUCCESS',
             style: TextStyle(
               color: AppColor.ui.success,
+            ),
+          ),
+          content,
+        ],
+      ),
+    ),
+  );
+
+  factory AppSnackBar.loading({
+    required Widget content,
+  }) => AppSnackBar(
+    color: AppColor.ui.loading,
+    content: Padding(
+      padding: const EdgeInsets.all(PaddingSize.small),
+      child: Row(
+        children: [
+          Icon(
+            Icons.pending,
+            color: AppColor.ui.loading,
+          ),
+          Text(
+            'LOADING',
+            style: TextStyle(
+              color: AppColor.ui.loading,
             ),
           ),
           content,
@@ -57,22 +91,5 @@ class AppSnackBar extends StatelessWidget {
     ),
   );
 
-  final Widget content;
   final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return SnackBar(
-      margin: const EdgeInsets.all(MarginSize.middle),
-      padding: const EdgeInsets.symmetric(horizontal: PaddingSize.middle),
-      behavior: SnackBarBehavior.floating,
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(ShapeSize.smallCircular),
-      ),
-      showCloseIcon: true,
-      closeIconColor: color,
-      content: content,
-    );
-  }
 }
