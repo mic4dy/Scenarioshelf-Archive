@@ -53,4 +53,13 @@ class SigningViewModel extends _$SigningViewModel {
 
     ref.watch(userViewModelProvider).whenData((_) => ref.read(routerProvider).go(Routes.home.path));
   }
+
+  Future<void> signin() async {
+    await ref.read(userViewModelProvider.notifier).signinWithEmailAndPassword(
+      email: state.email,
+      password: state.password,
+    );
+
+    ref.watch(userViewModelProvider).whenData((_) => ref.read(routerProvider).go(Routes.home.path));
+  }
 }
