@@ -130,4 +130,25 @@ class UserViewModel extends _$UserViewModel {
       );
     }
   }
+
+  Future<void> signinWithGoogle() async {
+    state = const AsyncValue.loading();
+
+    try {
+      final User user = await _authRepository.signinWithGoogle();
+      state = AsyncValue.data(user);
+    } on Exception catch (error, stack) {
+      Logger().e(
+        'UserViewModel.signinWithGoogle',
+        [error, stack],
+      );
+      state = AsyncValue.error(
+        const SigningException(
+          'Google sign-in failed (FirebaseAuthException)',
+          'ログインに失敗しました',
+        ),
+        stack,
+      );
+    }
+  }
 }
