@@ -95,7 +95,7 @@ class UserViewModel extends _$UserViewModel {
         state = AsyncValue.error(
           const SigningException(
             'User is not found (FirebaseAuthException)',
-            'メールアドレスが正しくありません',
+            'メールアドレスかパスワード正しくありません',
           ),
           stack,
         );
@@ -103,7 +103,7 @@ class UserViewModel extends _$UserViewModel {
         state = AsyncValue.error(
           const SigningException(
             'Wrong password (FirebaseAuthException)',
-            'パスワードが違います',
+            'メールアドレスかパスワード正しくありません',
           ),
           stack,
         );
