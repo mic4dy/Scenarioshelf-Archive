@@ -1,10 +1,10 @@
 name: scenarioshelf
 description: TRPG通過シナリオ保存サービス
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 dependencies:
   flutter:
@@ -15,6 +15,7 @@ dependencies:
 
   # Firebase
   firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
 
   # State management
   flutter_riverpod: ^2.3.6
@@ -23,6 +24,11 @@ dependencies:
 
   # Transition
   go_router: ^9.0.1
+
+  # Other
+  intl: ^0.18.1
+  logger: ^1.4.0
+  google_sign_in: ^6.1.4
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +39,7 @@ dev_dependencies:
   riverpod_generator: ^2.2.3
   freezed: ^2.3.5
   flutter_launcher_icons: ^0.13.1
-  
+
   # Linter
   flutter_lints: ^2.0.0
   very_good_analysis: ^5.0.0+1
@@ -62,3 +68,5 @@ flutter:
           weight: 600
         - asset: assets/fonts/IBMPlexSansJP-Bold.ttf
           weight: 700
+  assets:
+    - assets/images/logo/

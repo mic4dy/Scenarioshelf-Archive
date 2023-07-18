@@ -9,21 +9,20 @@ class AppColor {
 }
 
 class _Brand {
-  final Color primary = const Color(0xFFffffff);
-  final Color secondary = const Color(0xFF7c4e29);
-  final Color secondaryLight = const Color(0xFFeddec3);
-  final Color tertiary = const Color(0xFFc46a26);
+  final Color primary = const Color(0xFF7c4e29);
+  final Color primaryLight = const Color(0xFFeddec3);
+  final Color secondary = const Color(0xFFc46a26);
 }
 
 class _UI {
   final Color white = const Color(0xFFffffff);
+  final Color success = const Color(0xFF00ff33);
+  final Color loading = const Color(0xFFffb300);
+  final Color error = const Color(0xFFff3300);
 }
 
 class _Text {
-  final Color primary = const Color(0xFF373737);
-  final Color appBarTitle = const Color(0xFF373737);
-  final Color gray = const Color(0xFF808080);
-  final Color blackMid = const Color(0x61000000);
   final Color white = const Color(0xFFffffff);
-  final Color blue = const Color(0xFF448aff);
+  final Color error = const Color(0xFFc46a26);
+  final Color snackBar = const Color(0xFF333333);
 }
