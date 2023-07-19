@@ -14,19 +14,14 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Session _$SessionFromJson(Map<String, dynamic> json) {
-  return _Session.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Session {
-  int get id => throw _privateConstructorUsedError;
-  Scenario get scenario => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get scenarioId => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
   String? get charactor => throw _privateConstructorUsedError;
   String? get memo => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
@@ -37,13 +32,11 @@ abstract class $SessionCopyWith<$Res> {
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
   $Res call(
-      {int id,
-      Scenario scenario,
+      {String id,
+      String scenarioId,
       DateTime? date,
       String? charactor,
       String? memo});
-
-  $ScenarioCopyWith<$Res> get scenario;
 }
 
 /// @nodoc
@@ -60,7 +53,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @override
   $Res call({
     Object? id = null,
-    Object? scenario = null,
+    Object? scenarioId = null,
     Object? date = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
@@ -69,11 +62,11 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      scenario: null == scenario
-          ? _value.scenario
-          : scenario // ignore: cast_nullable_to_non_nullable
-              as Scenario,
+              as String,
+      scenarioId: null == scenarioId
+          ? _value.scenarioId
+          : scenarioId // ignore: cast_nullable_to_non_nullable
+              as String,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -88,14 +81,6 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
               as String?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ScenarioCopyWith<$Res> get scenario {
-    return $ScenarioCopyWith<$Res>(_value.scenario, (value) {
-      return _then(_value.copyWith(scenario: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -106,14 +91,11 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      Scenario scenario,
+      {String id,
+      String scenarioId,
       DateTime? date,
       String? charactor,
       String? memo});
-
-  @override
-  $ScenarioCopyWith<$Res> get scenario;
 }
 
 /// @nodoc
@@ -127,7 +109,7 @@ class __$$_SessionCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? scenario = null,
+    Object? scenarioId = null,
     Object? date = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
@@ -136,11 +118,11 @@ class __$$_SessionCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      scenario: null == scenario
-          ? _value.scenario
-          : scenario // ignore: cast_nullable_to_non_nullable
-              as Scenario,
+              as String,
+      scenarioId: null == scenarioId
+          ? _value.scenarioId
+          : scenarioId // ignore: cast_nullable_to_non_nullable
+              as String,
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -158,22 +140,19 @@ class __$$_SessionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Session implements _Session {
   const _$_Session(
       {required this.id,
-      required this.scenario,
+      required this.scenarioId,
       this.date,
       this.charactor,
       this.memo});
 
-  factory _$_Session.fromJson(Map<String, dynamic> json) =>
-      _$$_SessionFromJson(json);
-
   @override
-  final int id;
+  final String id;
   @override
-  final Scenario scenario;
+  final String scenarioId;
   @override
   final DateTime? date;
   @override
@@ -183,7 +162,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, scenario: $scenario, date: $date, charactor: $charactor, memo: $memo)';
+    return 'Session(id: $id, scenarioId: $scenarioId, date: $date, charactor: $charactor, memo: $memo)';
   }
 
   @override
@@ -192,47 +171,37 @@ class _$_Session implements _Session {
         (other.runtimeType == runtimeType &&
             other is _$_Session &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.scenario, scenario) ||
-                other.scenario == scenario) &&
+            (identical(other.scenarioId, scenarioId) ||
+                other.scenarioId == scenarioId) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.charactor, charactor) ||
                 other.charactor == charactor) &&
             (identical(other.memo, memo) || other.memo == memo));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, scenario, date, charactor, memo);
+      Object.hash(runtimeType, id, scenarioId, date, charactor, memo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_SessionCopyWith<_$_Session> get copyWith =>
       __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SessionToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Session implements Session {
   const factory _Session(
-      {required final int id,
-      required final Scenario scenario,
+      {required final String id,
+      required final String scenarioId,
       final DateTime? date,
       final String? charactor,
       final String? memo}) = _$_Session;
 
-  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
-
   @override
-  int get id;
+  String get id;
   @override
-  Scenario get scenario;
+  String get scenarioId;
   @override
   DateTime? get date;
   @override

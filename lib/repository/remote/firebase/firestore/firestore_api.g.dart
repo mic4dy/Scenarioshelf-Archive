@@ -1,23 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'router.dart';
+part of 'firestore_api.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'515477c81422750ead5059e69e5dfc3f8639eaa3';
+String _$firestoreAPIHash() => r'e4f36759f6f0e580d6ff62d831afe06cdbada19f';
 
-/// See also [router].
-@ProviderFor(router)
-final routerProvider = AutoDisposeProvider<GoRouter>.internal(
-  router,
-  name: r'routerProvider',
+/// See also [FirestoreAPI].
+@ProviderFor(FirestoreAPI)
+final firestoreAPIProvider =
+    NotifierProvider<FirestoreAPI, FirebaseFirestore>.internal(
+  FirestoreAPI.new,
+  name: r'firestoreAPIProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$firestoreAPIHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef RouterRef = AutoDisposeProviderRef<GoRouter>;
+typedef _$FirestoreAPI = Notifier<FirebaseFirestore>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

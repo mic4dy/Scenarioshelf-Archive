@@ -1,25 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'signing_view_model.dart';
+part of 'session_remote_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signingViewModelHash() => r'b9638f39d82bca932bd0040af54aa28e66e5f215';
+String _$sessionRemoteRepositoryHash() =>
+    r'ac08e0713fd933728d65bafeec712e4ca1ad3f71';
 
-/// See also [SigningViewModel].
-@ProviderFor(SigningViewModel)
-final signingViewModelProvider =
-    AutoDisposeNotifierProvider<SigningViewModel, SigningState>.internal(
-  SigningViewModel.new,
-  name: r'signingViewModelProvider',
+/// See also [sessionRemoteRepository].
+@ProviderFor(sessionRemoteRepository)
+final sessionRemoteRepositoryProvider =
+    AutoDisposeProvider<SessionRemoteRepository>.internal(
+  sessionRemoteRepository,
+  name: r'sessionRemoteRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$signingViewModelHash,
+      : _$sessionRemoteRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SigningViewModel = AutoDisposeNotifier<SigningState>;
+typedef SessionRemoteRepositoryRef
+    = AutoDisposeProviderRef<SessionRemoteRepository>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
