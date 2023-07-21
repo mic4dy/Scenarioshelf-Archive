@@ -14,19 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Session _$SessionFromJson(Map<String, dynamic> json) {
-  return _Session.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Session {
-  int get id => throw _privateConstructorUsedError;
-  Scenario get scenario => throw _privateConstructorUsedError;
-  DateTime? get date => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
+  String get scenarioId => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get eventDate => throw _privateConstructorUsedError;
   String? get charactor => throw _privateConstructorUsedError;
   String? get memo => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
@@ -37,13 +35,14 @@ abstract class $SessionCopyWith<$Res> {
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
   $Res call(
-      {int id,
-      Scenario scenario,
-      DateTime? date,
+      {String id,
+      String userId,
+      String scenarioId,
+      DateTime createdAt,
+      DateTime updatedAt,
+      DateTime? eventDate,
       String? charactor,
       String? memo});
-
-  $ScenarioCopyWith<$Res> get scenario;
 }
 
 /// @nodoc
@@ -60,8 +59,11 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @override
   $Res call({
     Object? id = null,
-    Object? scenario = null,
-    Object? date = freezed,
+    Object? userId = null,
+    Object? scenarioId = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? eventDate = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -69,14 +71,26 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      scenario: null == scenario
-          ? _value.scenario
-          : scenario // ignore: cast_nullable_to_non_nullable
-              as Scenario,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      scenarioId: null == scenarioId
+          ? _value.scenarioId
+          : scenarioId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      eventDate: freezed == eventDate
+          ? _value.eventDate
+          : eventDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       charactor: freezed == charactor
           ? _value.charactor
@@ -88,14 +102,6 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
               as String?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ScenarioCopyWith<$Res> get scenario {
-    return $ScenarioCopyWith<$Res>(_value.scenario, (value) {
-      return _then(_value.copyWith(scenario: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -106,14 +112,14 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      Scenario scenario,
-      DateTime? date,
+      {String id,
+      String userId,
+      String scenarioId,
+      DateTime createdAt,
+      DateTime updatedAt,
+      DateTime? eventDate,
       String? charactor,
       String? memo});
-
-  @override
-  $ScenarioCopyWith<$Res> get scenario;
 }
 
 /// @nodoc
@@ -127,8 +133,11 @@ class __$$_SessionCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? scenario = null,
-    Object? date = freezed,
+    Object? userId = null,
+    Object? scenarioId = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? eventDate = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -136,14 +145,26 @@ class __$$_SessionCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      scenario: null == scenario
-          ? _value.scenario
-          : scenario // ignore: cast_nullable_to_non_nullable
-              as Scenario,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      scenarioId: null == scenarioId
+          ? _value.scenarioId
+          : scenarioId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      eventDate: freezed == eventDate
+          ? _value.eventDate
+          : eventDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       charactor: freezed == charactor
           ? _value.charactor
@@ -158,24 +179,30 @@ class __$$_SessionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Session implements _Session {
   const _$_Session(
       {required this.id,
-      required this.scenario,
-      this.date,
+      required this.userId,
+      required this.scenarioId,
+      required this.createdAt,
+      required this.updatedAt,
+      this.eventDate,
       this.charactor,
       this.memo});
 
-  factory _$_Session.fromJson(Map<String, dynamic> json) =>
-      _$$_SessionFromJson(json);
-
   @override
-  final int id;
+  final String id;
   @override
-  final Scenario scenario;
+  final String userId;
   @override
-  final DateTime? date;
+  final String scenarioId;
+  @override
+  final DateTime createdAt;
+  @override
+  final DateTime updatedAt;
+  @override
+  final DateTime? eventDate;
   @override
   final String? charactor;
   @override
@@ -183,7 +210,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, scenario: $scenario, date: $date, charactor: $charactor, memo: $memo)';
+    return 'Session(id: $id, userId: $userId, scenarioId: $scenarioId, createdAt: $createdAt, updatedAt: $updatedAt, eventDate: $eventDate, charactor: $charactor, memo: $memo)';
   }
 
   @override
@@ -192,49 +219,54 @@ class _$_Session implements _Session {
         (other.runtimeType == runtimeType &&
             other is _$_Session &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.scenario, scenario) ||
-                other.scenario == scenario) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.scenarioId, scenarioId) ||
+                other.scenarioId == scenarioId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.eventDate, eventDate) ||
+                other.eventDate == eventDate) &&
             (identical(other.charactor, charactor) ||
                 other.charactor == charactor) &&
             (identical(other.memo, memo) || other.memo == memo));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, scenario, date, charactor, memo);
+  int get hashCode => Object.hash(runtimeType, id, userId, scenarioId,
+      createdAt, updatedAt, eventDate, charactor, memo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_SessionCopyWith<_$_Session> get copyWith =>
       __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SessionToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Session implements Session {
   const factory _Session(
-      {required final int id,
-      required final Scenario scenario,
-      final DateTime? date,
+      {required final String id,
+      required final String userId,
+      required final String scenarioId,
+      required final DateTime createdAt,
+      required final DateTime updatedAt,
+      final DateTime? eventDate,
       final String? charactor,
       final String? memo}) = _$_Session;
 
-  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
-
   @override
-  int get id;
+  String get id;
   @override
-  Scenario get scenario;
+  String get userId;
   @override
-  DateTime? get date;
+  String get scenarioId;
+  @override
+  DateTime get createdAt;
+  @override
+  DateTime get updatedAt;
+  @override
+  DateTime? get eventDate;
   @override
   String? get charactor;
   @override
