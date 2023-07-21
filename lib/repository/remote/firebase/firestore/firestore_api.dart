@@ -9,4 +9,5 @@ class FirestoreAPI extends _$FirestoreAPI {
   FirebaseFirestore build() => FirebaseFirestore.instance;
 
   CollectionReference<Map<String, dynamic>> get sessionsRef => state.collection('sessions');
+  CollectionReference<Map<String, dynamic>> get scenariosRef => state.collection('scenarios');
 }
