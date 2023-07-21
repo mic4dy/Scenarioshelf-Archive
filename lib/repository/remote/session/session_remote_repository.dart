@@ -16,6 +16,7 @@ SessionRemoteRepository sessionRemoteRepository (SessionRemoteRepositoryRef ref)
 abstract class SessionRemoteRepositoryAPI {
   Future<Session> create({
     required String scenarioId,
+    required String userId,
     DateTime? eventDate,
     String? charactor,
     String? memo,
@@ -23,7 +24,7 @@ abstract class SessionRemoteRepositoryAPI {
   Future<Session> get({required String id});
   Future<List<Session>> list({required String uid});
   Future<Session> update({required Session session});
-  Future<Session> delete({required String id});
+  Future<String> delete({required String id});
 }
 
 class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
@@ -36,15 +37,19 @@ class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
   @override
   Future<Session> create({
     required String scenarioId,
+    required String userId,
     DateTime? eventDate,
     String? charactor,
     String? memo,
   }) async {
     final session = <String, dynamic>{
       'scenarioId': scenarioId,
+      'userId': userId,
       if (eventDate != null) 'eventDate': eventDate,
       if (charactor != null) 'charactor': charactor,
       if (memo != null) 'memo': memo,
+      'createdAt': FieldValue.serverTimestamp(),
+      'updatedAt': FieldValue.serverTimestamp(),
     };
     final sessionRef = database.doc();
 
@@ -68,14 +73,21 @@ class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
   }
   
   @override
-  Future<Session> update({required Session session}) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Session> update({required Session session}) async {
+    await database.doc(session.id).update({
+      if (session.eventDate != null) 'eventDate': session.eventDate,
+      if (session.charactor != null) 'charactor': session.charactor,
+      if (session.memo != null) 'memo': session.memo,
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+
+    return get(id: session.id);
   }
 
   @override
-  Future<Session> delete({required String id}) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<String> delete({required String id}) async {
+    await database.doc(id).delete();
+    
+    return id;
   }
 }
