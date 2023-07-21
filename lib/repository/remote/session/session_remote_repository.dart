@@ -16,12 +16,12 @@ SessionRemoteRepository sessionRemoteRepository (SessionRemoteRepositoryRef ref)
 abstract class SessionRemoteRepositoryAPI {
   Future<Session> create({
     required String scenarioId,
-    DateTime? date,
+    DateTime? eventDate,
     String? charactor,
     String? memo,
   });
   Future<Session> get({required String id});
-  Future<List<Session>> list({String? uid});
+  Future<List<Session>> list({required String uid});
   Future<Session> update({required Session session});
   Future<Session> delete({required String id});
 }
@@ -36,13 +36,13 @@ class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
   @override
   Future<Session> create({
     required String scenarioId,
-    DateTime? date,
+    DateTime? eventDate,
     String? charactor,
     String? memo,
   }) async {
     final session = <String, dynamic>{
       'scenarioId': scenarioId,
-      if (date != null) 'date': date,
+      if (eventDate != null) 'eventDate': eventDate,
       if (charactor != null) 'charactor': charactor,
       if (memo != null) 'memo': memo,
     };
@@ -54,12 +54,6 @@ class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
   }
   
   @override
-  Future<Session> delete({required String id}) {
-    // TODO: implement delete
-    throw UnimplementedError();
-  }
-  
-  @override
   Future<Session> get({required String id}) async {
     final sessionRef = await database.doc(id).get();
 
@@ -67,14 +61,21 @@ class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
   }
   
   @override
-  Future<List<Session>> list({String? uid}) {
-    // TODO: implement list
-    throw UnimplementedError();
+  Future<List<Session>> list({required String uid}) async {
+    final sessionsRef = await database.where('userId', isEqualTo: uid).get();
+
+    return sessionsRef.docs.map(Session.fromFirestore).toList();
   }
   
   @override
   Future<Session> update({required Session session}) {
     // TODO: implement update
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Session> delete({required String id}) {
+    // TODO: implement delete
     throw UnimplementedError();
   }
 }

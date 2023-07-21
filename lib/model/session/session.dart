@@ -8,8 +8,11 @@ part 'session.freezed.dart';
 class Session with _$Session {
   const factory Session({
     required String id,
+    required String userId,
     required String scenarioId,
-    DateTime? date,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    DateTime? eventDate,
     String? charactor,
     String? memo,
   }) = _Session;
@@ -21,10 +24,13 @@ class Session with _$Session {
 
     return Session(
       id: sessionRef.id,
+      userId: data['userId'] as String,
       scenarioId: data['scenarioId'] as String,
-      date: data['date'] is Timestamp ? (data['date'] as Timestamp).toDate() : null,
+      eventDate: data['eventDate'] is Timestamp ? (data['eventDate'] as Timestamp).toDate() : null,
       charactor: data['scenarioId'] as String?,
       memo: data['memo'] as String?,
+      createdAt: (data['createdAt'] as Timestamp).toDate(),
+      updatedAt: (data['updatedAt'] as Timestamp).toDate(),
     );
   }
 }
