@@ -27,7 +27,7 @@ class Session with _$Session {
       userId: data['userId'] as String,
       scenarioId: data['scenarioId'] as String,
       eventDate: data['eventDate'] is Timestamp ? (data['eventDate'] as Timestamp).toDate() : null,
-      charactor: data['scenarioId'] as String?,
+      charactor: data['charactor'] as String?,
       memo: data['memo'] as String?,
       createdAt: (data['createdAt'] as Timestamp).toDate(),
       updatedAt: (data['updatedAt'] as Timestamp).toDate(),
