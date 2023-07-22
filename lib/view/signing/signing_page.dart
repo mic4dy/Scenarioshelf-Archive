@@ -74,9 +74,9 @@ class SigningPage extends ConsumerWidget {
                   onChanged: (password) => ref.read(signingViewModelProvider.notifier).updatePassword(password),
                   isObscure: state.isObscure,
                   suffixIcon: IconButton(
+                    padding: EdgeInsets.zero,
                     onPressed: () => ref.read(signingViewModelProvider.notifier).onTapObscureIcon(),
                     icon: Icon(state.isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined),
-                    constraints: const BoxConstraints(),
                     iconSize: 18,
                     splashRadius: 18,
                   ),
