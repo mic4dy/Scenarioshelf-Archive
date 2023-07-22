@@ -8,6 +8,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/repository/remote/firebase/firebase_options.dart';
 import 'package:scenarioshelf/router/router.dart';
+import 'package:scenarioshelf/util/gen/fonts.gen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +40,7 @@ class Scenarioshelf extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
     final theme = ThemeData(
-      fontFamily: 'IBMPlexSansJP',
+      fontFamily: FontFamily.iBMPlexSansJP,
       scaffoldBackgroundColor: AppColor.ui.white,
       colorScheme: Theme.of(context).colorScheme.copyWith(
         primary: AppColor.brand.primary,
