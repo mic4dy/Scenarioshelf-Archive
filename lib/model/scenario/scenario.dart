@@ -14,9 +14,14 @@ class Scenario with _$Scenario {
     required TRPGSystem system,
     required String name,
     required String okurigana,
+    @Default(true) bool isNeedHost,
     String? url,
     String? image,
+    int? maxNumberOfPlayers,
+    int? minNumberOfPlayers,
+    Duration? playTime,
   }) = _Scenario;
+  const Scenario._();
 
   factory Scenario.fromFirestore(DocumentSnapshot<Map<String, dynamic>> scenarioRef) {
     final data = scenarioRef.data();
@@ -28,8 +33,14 @@ class Scenario with _$Scenario {
       system: TRPGSystem.fromId(data['system'] as String),
       name: data['name'] as String,
       okurigana: data['okurigana'] as String,
+      isNeedHost: data['isNeedHost'] as bool,
       url: data['url'] as String?,
       image: data['image'] as String?,
+      maxNumberOfPlayers: data['maxNumberOfPlayers'] as int?,
+      minNumberOfPlayers: data['minNumberOfPlayers'] as int?,
+      playTime: (data['playTime'] != null) ? Duration(minutes: data['playTime'] as int) : null,
     );
   }
+
+  int? get numberOfPlayers => maxNumberOfPlayers ?? minNumberOfPlayers;
 }

@@ -38,28 +38,50 @@ class ScenarioRemoteRepository extends ScenarioRemoteRepositoryAPI {
     required TRPGSystem system,
     required String name,
     required String okurigana,
+    bool? isNeedHost,
     String? url,
     String? image,
-  }) {
-    // TODO: implement create
-    throw UnimplementedError();
+    int? maxNumberOfPlayers,
+    int? minNumberOfPlayers,
+    Duration? playTime,
+  }) async {
+    final scenario = <String, dynamic>{
+      'system': system.id,
+      'name': name,
+      'okurigana': okurigana,
+      if (isNeedHost != null) 'isNeedHost': isNeedHost,
+      if (url != null) 'url': url,
+      if (image != null) 'url': image,
+      if (maxNumberOfPlayers != null) 'maxNumberOfPlayers': maxNumberOfPlayers,
+      if (minNumberOfPlayers != null) 'minNumberOfPlayers': minNumberOfPlayers,
+      if (playTime != null) 'playTime': playTime.inMinutes,
+    };
+    
+    final scenarioRef = database.doc();
+
+    await scenarioRef.set(scenario);
+
+    return get(id: scenarioRef.id);
   }
   
   @override
-  Future<Scenario> get({required String id}) {
-    // TODO: implement get
-    throw UnimplementedError();
+  Future<Scenario> get({required String id}) async {
+    final scenarioRef = await database.doc(id).get();
+
+    return Scenario.fromFirestore(scenarioRef);
   }
   
   @override
-  Future<List<Scenario>> list() {
-    // TODO: implement list
-    throw UnimplementedError();
+  Future<List<Scenario>> list() async {
+    final scenariosRef = await database.get();
+
+    return scenariosRef.docs.map(Scenario.fromFirestore).toList();
   }
   
   @override
-  Future<List<Scenario>> search({required String keyword}) {
-    // TODO: implement search
-    throw UnimplementedError();
+  Future<List<Scenario>> search({required String keyword}) async {
+    final scenariosRef = await database.where('name', isEqualTo: keyword).get();
+
+    return scenariosRef.docs.map(Scenario.fromFirestore).toList();
   }
 }

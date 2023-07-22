@@ -20,8 +20,12 @@ mixin _$Scenario {
   TRPGSystem get system => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get okurigana => throw _privateConstructorUsedError;
+  bool get isNeedHost => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  int? get maxNumberOfPlayers => throw _privateConstructorUsedError;
+  int? get minNumberOfPlayers => throw _privateConstructorUsedError;
+  Duration? get playTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ScenarioCopyWith<Scenario> get copyWith =>
@@ -38,8 +42,12 @@ abstract class $ScenarioCopyWith<$Res> {
       TRPGSystem system,
       String name,
       String okurigana,
+      bool isNeedHost,
       String? url,
-      String? image});
+      String? image,
+      int? maxNumberOfPlayers,
+      int? minNumberOfPlayers,
+      Duration? playTime});
 }
 
 /// @nodoc
@@ -59,8 +67,12 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
     Object? system = null,
     Object? name = null,
     Object? okurigana = null,
+    Object? isNeedHost = null,
     Object? url = freezed,
     Object? image = freezed,
+    Object? maxNumberOfPlayers = freezed,
+    Object? minNumberOfPlayers = freezed,
+    Object? playTime = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,6 +91,10 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
           ? _value.okurigana
           : okurigana // ignore: cast_nullable_to_non_nullable
               as String,
+      isNeedHost: null == isNeedHost
+          ? _value.isNeedHost
+          : isNeedHost // ignore: cast_nullable_to_non_nullable
+              as bool,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -87,6 +103,18 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      maxNumberOfPlayers: freezed == maxNumberOfPlayers
+          ? _value.maxNumberOfPlayers
+          : maxNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      minNumberOfPlayers: freezed == minNumberOfPlayers
+          ? _value.minNumberOfPlayers
+          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      playTime: freezed == playTime
+          ? _value.playTime
+          : playTime // ignore: cast_nullable_to_non_nullable
+              as Duration?,
     ) as $Val);
   }
 }
@@ -103,8 +131,12 @@ abstract class _$$_ScenarioCopyWith<$Res> implements $ScenarioCopyWith<$Res> {
       TRPGSystem system,
       String name,
       String okurigana,
+      bool isNeedHost,
       String? url,
-      String? image});
+      String? image,
+      int? maxNumberOfPlayers,
+      int? minNumberOfPlayers,
+      Duration? playTime});
 }
 
 /// @nodoc
@@ -122,8 +154,12 @@ class __$$_ScenarioCopyWithImpl<$Res>
     Object? system = null,
     Object? name = null,
     Object? okurigana = null,
+    Object? isNeedHost = null,
     Object? url = freezed,
     Object? image = freezed,
+    Object? maxNumberOfPlayers = freezed,
+    Object? minNumberOfPlayers = freezed,
+    Object? playTime = freezed,
   }) {
     return _then(_$_Scenario(
       id: null == id
@@ -142,6 +178,10 @@ class __$$_ScenarioCopyWithImpl<$Res>
           ? _value.okurigana
           : okurigana // ignore: cast_nullable_to_non_nullable
               as String,
+      isNeedHost: null == isNeedHost
+          ? _value.isNeedHost
+          : isNeedHost // ignore: cast_nullable_to_non_nullable
+              as bool,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -150,20 +190,37 @@ class __$$_ScenarioCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      maxNumberOfPlayers: freezed == maxNumberOfPlayers
+          ? _value.maxNumberOfPlayers
+          : maxNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      minNumberOfPlayers: freezed == minNumberOfPlayers
+          ? _value.minNumberOfPlayers
+          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
+      playTime: freezed == playTime
+          ? _value.playTime
+          : playTime // ignore: cast_nullable_to_non_nullable
+              as Duration?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Scenario implements _Scenario {
+class _$_Scenario extends _Scenario {
   const _$_Scenario(
       {required this.id,
       required this.system,
       required this.name,
       required this.okurigana,
+      this.isNeedHost = true,
       this.url,
-      this.image});
+      this.image,
+      this.maxNumberOfPlayers,
+      this.minNumberOfPlayers,
+      this.playTime})
+      : super._();
 
   @override
   final String id;
@@ -174,13 +231,22 @@ class _$_Scenario implements _Scenario {
   @override
   final String okurigana;
   @override
+  @JsonKey()
+  final bool isNeedHost;
+  @override
   final String? url;
   @override
   final String? image;
+  @override
+  final int? maxNumberOfPlayers;
+  @override
+  final int? minNumberOfPlayers;
+  @override
+  final Duration? playTime;
 
   @override
   String toString() {
-    return 'Scenario(id: $id, system: $system, name: $name, okurigana: $okurigana, url: $url, image: $image)';
+    return 'Scenario(id: $id, system: $system, name: $name, okurigana: $okurigana, isNeedHost: $isNeedHost, url: $url, image: $image, maxNumberOfPlayers: $maxNumberOfPlayers, minNumberOfPlayers: $minNumberOfPlayers, playTime: $playTime)';
   }
 
   @override
@@ -193,13 +259,21 @@ class _$_Scenario implements _Scenario {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.okurigana, okurigana) ||
                 other.okurigana == okurigana) &&
+            (identical(other.isNeedHost, isNeedHost) ||
+                other.isNeedHost == isNeedHost) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.maxNumberOfPlayers, maxNumberOfPlayers) ||
+                other.maxNumberOfPlayers == maxNumberOfPlayers) &&
+            (identical(other.minNumberOfPlayers, minNumberOfPlayers) ||
+                other.minNumberOfPlayers == minNumberOfPlayers) &&
+            (identical(other.playTime, playTime) ||
+                other.playTime == playTime));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, system, name, okurigana, url, image);
+  int get hashCode => Object.hash(runtimeType, id, system, name, okurigana,
+      isNeedHost, url, image, maxNumberOfPlayers, minNumberOfPlayers, playTime);
 
   @JsonKey(ignore: true)
   @override
@@ -208,14 +282,19 @@ class _$_Scenario implements _Scenario {
       __$$_ScenarioCopyWithImpl<_$_Scenario>(this, _$identity);
 }
 
-abstract class _Scenario implements Scenario {
+abstract class _Scenario extends Scenario {
   const factory _Scenario(
       {required final String id,
       required final TRPGSystem system,
       required final String name,
       required final String okurigana,
+      final bool isNeedHost,
       final String? url,
-      final String? image}) = _$_Scenario;
+      final String? image,
+      final int? maxNumberOfPlayers,
+      final int? minNumberOfPlayers,
+      final Duration? playTime}) = _$_Scenario;
+  const _Scenario._() : super._();
 
   @override
   String get id;
@@ -226,9 +305,17 @@ abstract class _Scenario implements Scenario {
   @override
   String get okurigana;
   @override
+  bool get isNeedHost;
+  @override
   String? get url;
   @override
   String? get image;
+  @override
+  int? get maxNumberOfPlayers;
+  @override
+  int? get minNumberOfPlayers;
+  @override
+  Duration? get playTime;
   @override
   @JsonKey(ignore: true)
   _$$_ScenarioCopyWith<_$_Scenario> get copyWith =>
