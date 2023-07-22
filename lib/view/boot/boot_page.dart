@@ -4,6 +4,7 @@ import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/util/exception/signing_exception.dart';
+import 'package:scenarioshelf/util/gen/assets.gen.dart';
 import 'package:scenarioshelf/view/boot/boot_option_button.dart';
 import 'package:scenarioshelf/view/component/snack_bar/app_snack_bar.dart';
 import 'package:scenarioshelf/view_model/page/signing/signing_view_model.dart';
@@ -51,8 +52,7 @@ class BootPage extends ConsumerWidget {
         child: Column(
           children: [
             const Spacer(),
-            Image.asset(
-              'assets/images/logo/logo.png',
+            Assets.images.logo.logo.image(
               width: size.width * 0.4,
             ),
             const Spacer(),
@@ -78,8 +78,7 @@ class BootPage extends ConsumerWidget {
                 ),
                 BootOptionButton.credential(
                   onPressed: () => ref.read(signingViewModelProvider.notifier).signinWithGoogle(),
-                  icon: Image.asset(
-                    'assets/images/logo/g-logo.png',
+                  icon: Assets.images.logo.gLogo.image(
                     height: 24,
                   ),
                   label: 'Sign in with Google',

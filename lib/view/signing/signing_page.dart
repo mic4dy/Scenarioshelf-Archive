@@ -5,6 +5,7 @@ import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/router/router.dart';
 import 'package:scenarioshelf/state/signing/signing_state.dart';
 import 'package:scenarioshelf/util/exception/signing_exception.dart';
+import 'package:scenarioshelf/util/gen/assets.gen.dart';
 import 'package:scenarioshelf/view/boot/boot_option_button.dart';
 import 'package:scenarioshelf/view/component/snack_bar/app_snack_bar.dart';
 import 'package:scenarioshelf/view/signing/signing_form.dart';
@@ -60,8 +61,7 @@ class SigningPage extends ConsumerWidget {
             child: Column(
               children: [
                 const Spacer(flex: 2),
-                Image.asset(
-                  'assets/images/logo/logo.png',
+                Assets.images.logo.logo.image(
                   width: size.width * 0.4,
                 ),
                 const Spacer(flex: 2),
