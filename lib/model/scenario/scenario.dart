@@ -9,6 +9,10 @@ part 'trpg_system.dart';
 
 @freezed
 class Scenario with _$Scenario {
+  @Assert('minNumberOfPlayers == null || !minNumberOfPlayers.isNegative', '最小PL数が負の値になっています')
+  @Assert('maxNumberOfPlayers == null || !maxNumberOfPlayers.isNegative', '最大PL数が負の値になっています')
+  @Assert('minNumberOfPlayers == null || maxNumberOfPlayers == null || minNumberOfPlayers <= maxNumberOfPlayers', 'PL数の整合性が取れていません')
+  @Assert('playTime == null || !playTime.isNegative', 'プレイ時間が負の値になっています')
   const factory Scenario({
     required String id,
     required TRPGSystem system,

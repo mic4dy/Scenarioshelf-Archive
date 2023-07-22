@@ -220,7 +220,17 @@ class _$_Scenario extends _Scenario {
       this.maxNumberOfPlayers,
       this.minNumberOfPlayers,
       this.playTime})
-      : super._();
+      : assert(minNumberOfPlayers == null || !minNumberOfPlayers.isNegative,
+            '最小PL数が負の値になっています'),
+        assert(maxNumberOfPlayers == null || !maxNumberOfPlayers.isNegative,
+            '最大PL数が負の値になっています'),
+        assert(
+            minNumberOfPlayers == null ||
+                maxNumberOfPlayers == null ||
+                minNumberOfPlayers <= maxNumberOfPlayers,
+            'PL数の整合性が取れていません'),
+        assert(playTime == null || !playTime.isNegative, 'プレイ時間が負の値になっています'),
+        super._();
 
   @override
   final String id;
