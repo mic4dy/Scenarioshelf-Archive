@@ -16,7 +16,7 @@ class SigningForm extends StatelessWidget {
   }) => SigningForm(
     onChanged: onChanged,
     decoration: const InputDecoration(
-      contentPadding: EdgeInsets.zero,
+      contentPadding: EdgeInsets.only(bottom: 8),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       labelText: 'メールアドレス',
     ),
@@ -38,7 +38,6 @@ class SigningForm extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelText: 'パスワード',
         suffixIcon: suffixIcon,
-        suffixIconConstraints: const BoxConstraints(),
       ),
       textInputType: TextInputType.visiblePassword,
       validator: validator,
@@ -62,6 +61,7 @@ class SigningForm extends StatelessWidget {
         height: 1,
       ),
       keyboardType: textInputType,
+      textAlignVertical: TextAlignVertical.center,
       validator: validator,
     );
   }
