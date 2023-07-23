@@ -10,7 +10,7 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(routerProvider).go(Routes.report.path),
+        onPressed: () => ref.read(routerProvider).push(Routes.report.path),
         backgroundColor: AppColor.brand.primary,
         child: Icon(
           Icons.auto_stories_outlined,
