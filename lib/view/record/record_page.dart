@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:scenarioshelf/view/component/page_frame/fade_up_page_app_bar.dart';
+import 'package:scenarioshelf/view/component/label/label.dart';
 
 class RecordPage extends StatelessWidget {
   const RecordPage({super.key});
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: FadeUpPageAppBar(
-        title: Text('Record Page'),
+    final Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.075),
+        child: const Column(
+          children: [
+            Label(
+              icon: Icons.book_outlined,
+              text: Text('シナリオ'),
+            ),
+          ],
+        ),
       ),
     );
   }

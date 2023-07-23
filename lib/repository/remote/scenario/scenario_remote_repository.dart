@@ -17,9 +17,14 @@ abstract class ScenarioRemoteRepositoryAPI {
   Future<Scenario> create({
     required TRPGSystem system,
     required String name,
-    required String okurigana,
+    required String kana,
+    required String author,
+    bool? isNeedHost,
     String? url,
     String? image,
+    int? maxNumberOfPlayers,
+    int? minNumberOfPlayers,
+    Duration? playTime,
   });
   Future<Scenario> get({required String id});
   Future<List<Scenario>> list();
@@ -37,7 +42,8 @@ class ScenarioRemoteRepository extends ScenarioRemoteRepositoryAPI {
   Future<Scenario> create({
     required TRPGSystem system,
     required String name,
-    required String okurigana,
+    required String kana,
+    required String author,
     bool? isNeedHost,
     String? url,
     String? image,
@@ -48,7 +54,8 @@ class ScenarioRemoteRepository extends ScenarioRemoteRepositoryAPI {
     final scenario = <String, dynamic>{
       'system': system.id,
       'name': name,
-      'okurigana': okurigana,
+      'kana': kana,
+      'author': author,
       if (isNeedHost != null) 'isNeedHost': isNeedHost,
       if (url != null) 'url': url,
       if (image != null) 'url': image,
