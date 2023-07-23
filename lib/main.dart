@@ -42,8 +42,13 @@ class Scenarioshelf extends ConsumerWidget {
     final theme = ThemeData(
       useMaterial3: true,
       fontFamily: FontFamily.iBMPlexSansJP,
-      scaffoldBackgroundColor: AppColor.ui.white,
       colorSchemeSeed: AppColor.brand.primary,
+      scaffoldBackgroundColor: AppColor.ui.white,
+      bottomSheetTheme: Theme.of(context).bottomSheetTheme.copyWith(
+        backgroundColor: AppColor.ui.white,
+        modalBackgroundColor: AppColor.ui.white,
+        surfaceTintColor: AppColor.ui.white,
+      ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
           fontWeight: FontWeight.w300,

@@ -5,8 +5,7 @@ enum Routes {
   boot(path: '/boot'),
   signup(path: '/signup'),
   signin(path: '/signin'),
-  home(path: '/home'),
-  report(path: '/record');
+  home(path: '/home');
 
   const Routes({required this.path});
 

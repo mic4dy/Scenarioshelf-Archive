@@ -42,13 +42,6 @@ GoRouter router(RouterRef ref) {
         path: Routes.home.path,
         builder: (context, state) => const HomePage(),
       ),
-      GoRoute(
-        path: Routes.report.path,
-        pageBuilder: (context, state) => FadeUpPage(
-          state: state,
-          child: const RecordPage(),
-        ),
-      ),
     ],
   );
 }
