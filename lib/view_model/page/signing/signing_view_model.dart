@@ -46,6 +46,7 @@ class SigningViewModel extends _$SigningViewModel {
   Future<void> signup() async {
     if (!state.formKey.currentState!.validate()) return;
 
+    ref.invalidate(userViewModelProvider);
     await ref.read(userViewModelProvider.notifier).signupWithEmailAndPassword(
       email: state.email,
       password: state.password,
@@ -55,6 +56,7 @@ class SigningViewModel extends _$SigningViewModel {
   }
 
   Future<void> signin() async {
+    ref.invalidate(userViewModelProvider);
     await ref.read(userViewModelProvider.notifier).signinWithEmailAndPassword(
       email: state.email,
       password: state.password,

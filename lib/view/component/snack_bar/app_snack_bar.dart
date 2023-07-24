@@ -43,7 +43,7 @@ class AppSnackBar extends SnackBar {
               color: AppColor.ui.success,
             ),
           ),
-          const SizedBox(width: MarginSize.minimum),
+          const SizedBox(width: MarginSize.middle),
           Flexible(
             child: DefaultTextStyle(
               style: TextStyle(
@@ -80,7 +80,7 @@ class AppSnackBar extends SnackBar {
               color: AppColor.ui.loading,
             ),
           ),
-          const SizedBox(width: MarginSize.minimum),
+          const SizedBox(width: MarginSize.middle),
           Flexible(
             child: DefaultTextStyle(
               style: TextStyle(
@@ -115,7 +115,7 @@ class AppSnackBar extends SnackBar {
             color: AppColor.ui.error,
           ),
         ),
-        const SizedBox(width: MarginSize.minimum),
+        const SizedBox(width: MarginSize.middle),
         Flexible(
           child: DefaultTextStyle(
             style: TextStyle(
