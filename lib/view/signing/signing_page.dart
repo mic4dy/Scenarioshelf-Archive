@@ -34,7 +34,7 @@ class SigningPage extends ConsumerWidget {
         );
       }
 
-      if (next is AsyncError) {
+      if (previous is! AsyncError && next is AsyncError) {
         final Object? error = next.error;
         final String message;
 
