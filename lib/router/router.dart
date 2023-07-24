@@ -17,7 +17,7 @@ GoRouter router(RouterRef ref) {
       GoRoute(
         path: Routes.splash.path,
         redirect: (context, state) {
-          final userState = ref.watch(userViewModelProvider);
+          final userState = ref.read(userViewModelProvider);
 
           if (userState is AsyncData && userState.value != null) return Routes.home.path;
 

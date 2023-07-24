@@ -26,7 +26,7 @@ class SigningPage extends ConsumerWidget {
     final SigningState state = ref.watch(signingViewModelProvider);
 
     ref.listen(userViewModelProvider, (previous, next) {
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).clearSnackBars();
       
       if (previous is AsyncData && next is AsyncLoading) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -34,7 +34,7 @@ class SigningPage extends ConsumerWidget {
         );
       }
 
-      if (next is AsyncError) {
+      if (previous is AsyncLoading && next is AsyncError) {
         final Object? error = next.error;
         final String message;
 
