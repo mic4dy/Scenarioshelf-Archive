@@ -15,6 +15,9 @@ class HomePage extends ConsumerWidget {
           showDragHandle: true,
           useSafeArea: true,
           isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+          ),
           builder: (_) => const RecordPage(),
         ),
         backgroundColor: AppColor.brand.primary,
