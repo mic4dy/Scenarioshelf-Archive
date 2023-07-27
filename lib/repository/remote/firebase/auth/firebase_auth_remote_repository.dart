@@ -7,7 +7,7 @@ part 'firebase_auth_remote_repository.g.dart';
 @Riverpod(keepAlive: true)
 FirebaseAuthAPI firebaseAuthRemoteRepository(FirebaseAuthRemoteRepositoryRef ref) => FirebaseAuthRemoteRepository();
 
-abstract class FirebaseAuthAPI {
+abstract interface class FirebaseAuthAPI {
   Future<User> signupWithEmailAndPassword({
     required String email,
     required String password,
@@ -21,7 +21,7 @@ abstract class FirebaseAuthAPI {
   Future<void> signout();
 }
 
-class FirebaseAuthRemoteRepository extends FirebaseAuthAPI {
+class FirebaseAuthRemoteRepository implements FirebaseAuthAPI {
   @override
   Future<User> signupWithEmailAndPassword({required String email, required String password}) async {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(

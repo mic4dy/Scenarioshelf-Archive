@@ -13,7 +13,7 @@ ScenarioRemoteRepository scenarioRemoteRepository (ScenarioRemoteRepositoryRef r
   );
 }
 
-abstract class ScenarioRemoteRepositoryAPI {
+abstract interface class ScenarioRemoteRepositoryAPI {
   Future<Scenario> create({
     required TRPGSystem system,
     required String name,
@@ -31,7 +31,7 @@ abstract class ScenarioRemoteRepositoryAPI {
   Future<List<Scenario>> search({required String keyword});
 }
 
-class ScenarioRemoteRepository extends ScenarioRemoteRepositoryAPI {
+class ScenarioRemoteRepository implements ScenarioRemoteRepositoryAPI {
   ScenarioRemoteRepository({
     required this.database,
   });
