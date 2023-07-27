@@ -13,7 +13,7 @@ SessionRemoteRepository sessionRemoteRepository (SessionRemoteRepositoryRef ref)
   );
 }
 
-abstract class SessionRemoteRepositoryAPI {
+abstract interface class SessionRemoteRepositoryAPI {
   Future<Session> create({
     required String scenarioId,
     required String userId,
@@ -27,7 +27,7 @@ abstract class SessionRemoteRepositoryAPI {
   Future<String> delete({required String id});
 }
 
-class SessionRemoteRepository extends SessionRemoteRepositoryAPI {
+class SessionRemoteRepository implements SessionRemoteRepositoryAPI {
   SessionRemoteRepository({
     required this.database,
   });
