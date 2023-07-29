@@ -29,4 +29,5 @@ class IconSize {
   static const double snackBar = 16;
   static const double signingForm = 18;
   static const double lanel = 22;
+  static const double property = 16;
 }

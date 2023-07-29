@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/model/scenario/scenario.dart';
+import 'package:scenarioshelf/view/component/card/scenario/scenario_property_label.dart';
 
 class ScenarioCard extends StatelessWidget {
   const ScenarioCard({
@@ -39,28 +40,76 @@ class ScenarioCard extends StatelessWidget {
                       ? Image.network(
                         scenario.image!,
                         fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => _noImage(),
                       )
-                      : Container(
-                        color: AppColor.ui.success,
-                      ),
+                      : _noImage(),
                 ),
               ),
-              const SizedBox(width: MarginSize.small),
+              const SizedBox(width: MarginSize.middle),
               Flexible(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       scenario.name,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
+                        height: 1,
                       ),
                     ),
+                    Text(
+                      scenario.kana,
+                      style: TextStyle(
+                        color: AppColor.text.gray,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 10,
+                        height: 1,
+                      ),
+                    ),
+                    const SizedBox(height: MarginSize.small),
+                    ScenarioPropertyLabel.system(system: scenario.system),
+                    ScenarioPropertyLabel.numberOfPlayers(
+                      defaultOrMax: scenario.numberOfPlayers,
+                      min: scenario.minNumberOfPlayers,
+                    ),
+                    ScenarioPropertyLabel.playTime(playTime: scenario.playTime),
                   ],
                 ),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _noImage() {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColor.ui.gray,
+          width: 0.8,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.image_not_supported_outlined,
+              color: AppColor.ui.gray,
+              size: 16,
+            ),
+            Text(
+              'NO IMAGE',
+              style: TextStyle(
+                color: AppColor.text.gray,
+                fontSize: 10,
+              ),
+            ),
+          ],
         ),
       ),
     );

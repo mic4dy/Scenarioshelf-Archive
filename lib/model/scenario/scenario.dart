@@ -10,21 +10,21 @@ part 'trpg_system.dart';
 @freezed
 class Scenario with _$Scenario {
   @Assert('minNumberOfPlayers == null || !minNumberOfPlayers!.isNegative', '最小PL数が負の値になっています')
-  @Assert('maxNumberOfPlayers == null || !maxNumberOfPlayers!.isNegative', '最大PL数が負の値になっています')
-  @Assert('minNumberOfPlayers == null || maxNumberOfPlayers == null || minNumberOfPlayers <= maxNumberOfPlayers', 'PL数の整合性が取れていません')
-  @Assert('playTime == null || !playTime!.isNegative', 'プレイ時間が負の値になっています')
+  @Assert('!numberOfPlayers!.isNegative', 'PL数が負の値になっています')
+  @Assert('minNumberOfPlayers == null || minNumberOfPlayers < numberOfPlayers', 'PL数の整合性が取れていません')
+  @Assert('!playTime!.isNegative', 'プレイ時間が負の値になっています')
   const factory Scenario({
     required String id,
     required TRPGSystem system,
     required String name,
     required String kana,
     required String author,
+    required Duration playTime,
+    required int numberOfPlayers,
     @Default(true) bool isNeedHost,
+    int? minNumberOfPlayers,
     String? url,
     String? image,
-    int? maxNumberOfPlayers,
-    int? minNumberOfPlayers,
-    Duration? playTime,
   }) = _Scenario;
   const Scenario._();
 
@@ -42,11 +42,9 @@ class Scenario with _$Scenario {
       isNeedHost: data['isNeedHost'] as bool,
       url: data['url'] as String?,
       image: data['image'] as String?,
-      maxNumberOfPlayers: data['maxNumberOfPlayers'] as int?,
+      numberOfPlayers: data['numberOfPlayers'] as int,
       minNumberOfPlayers: data['minNumberOfPlayers'] as int?,
-      playTime: (data['playTime'] != null) ? Duration(minutes: data['playTime'] as int) : null,
+      playTime: Duration(minutes: data['playTime'] as int),
     );
   }
-
-  int? get numberOfPlayers => maxNumberOfPlayers ?? minNumberOfPlayers;
 }

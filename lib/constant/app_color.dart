@@ -16,6 +16,7 @@ class _Brand {
 
 class _UI {
   final Color white = const Color(0xFFffffff);
+  final Color gray = const Color(0xFFa9a9a9);
   final Color success = const Color(0xFF00ff33);
   final Color loading = const Color(0xFFffb300);
   final Color error = const Color(0xFFff3300);
@@ -24,6 +25,7 @@ class _UI {
 class _Text {
   final Color primary = const Color(0xFF000000);
   final Color white = const Color(0xFFffffff);
+  final Color gray = const Color(0xFF696969);
   final Color error = const Color(0xFFc46a26);
   final Color snackBar = const Color(0xFF333333);
 }

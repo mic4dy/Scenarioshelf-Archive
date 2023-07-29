@@ -19,12 +19,12 @@ abstract interface class ScenarioRemoteRepositoryAPI {
     required String name,
     required String kana,
     required String author,
+    required int numberOfPlayers,
+    required Duration playTime,
+    int? minNumberOfPlayers,
     bool? isNeedHost,
     String? url,
     String? image,
-    int? maxNumberOfPlayers,
-    int? minNumberOfPlayers,
-    Duration? playTime,
   });
   Future<Scenario> get({required String id});
   Future<List<Scenario>> list();
@@ -44,24 +44,24 @@ class ScenarioRemoteRepository implements ScenarioRemoteRepositoryAPI {
     required String name,
     required String kana,
     required String author,
+    required int numberOfPlayers,
+    required Duration playTime,
+    int? minNumberOfPlayers,
     bool? isNeedHost,
     String? url,
     String? image,
-    int? maxNumberOfPlayers,
-    int? minNumberOfPlayers,
-    Duration? playTime,
   }) async {
     final scenario = <String, dynamic>{
       'system': system.id,
       'name': name,
       'kana': kana,
       'author': author,
+      'numberOfPlayers': numberOfPlayers,
+      'playTime': playTime.inMinutes,
       if (isNeedHost != null) 'isNeedHost': isNeedHost,
+      if (minNumberOfPlayers != null) 'minNumberOfPlayers': minNumberOfPlayers,
       if (url != null) 'url': url,
       if (image != null) 'url': image,
-      if (maxNumberOfPlayers != null) 'maxNumberOfPlayers': maxNumberOfPlayers,
-      if (minNumberOfPlayers != null) 'minNumberOfPlayers': minNumberOfPlayers,
-      if (playTime != null) 'playTime': playTime.inMinutes,
     };
     
     final scenarioRef = database.doc();

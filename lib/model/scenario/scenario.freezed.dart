@@ -21,12 +21,12 @@ mixin _$Scenario {
   String get name => throw _privateConstructorUsedError;
   String get kana => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
+  Duration get playTime => throw _privateConstructorUsedError;
+  int get numberOfPlayers => throw _privateConstructorUsedError;
   bool get isNeedHost => throw _privateConstructorUsedError;
+  int? get minNumberOfPlayers => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
-  int? get maxNumberOfPlayers => throw _privateConstructorUsedError;
-  int? get minNumberOfPlayers => throw _privateConstructorUsedError;
-  Duration? get playTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ScenarioCopyWith<Scenario> get copyWith =>
@@ -44,12 +44,12 @@ abstract class $ScenarioCopyWith<$Res> {
       String name,
       String kana,
       String author,
+      Duration playTime,
+      int numberOfPlayers,
       bool isNeedHost,
-      String? url,
-      String? image,
-      int? maxNumberOfPlayers,
       int? minNumberOfPlayers,
-      Duration? playTime});
+      String? url,
+      String? image});
 }
 
 /// @nodoc
@@ -70,12 +70,12 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
     Object? name = null,
     Object? kana = null,
     Object? author = null,
+    Object? playTime = null,
+    Object? numberOfPlayers = null,
     Object? isNeedHost = null,
+    Object? minNumberOfPlayers = freezed,
     Object? url = freezed,
     Object? image = freezed,
-    Object? maxNumberOfPlayers = freezed,
-    Object? minNumberOfPlayers = freezed,
-    Object? playTime = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -98,10 +98,22 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
+      playTime: null == playTime
+          ? _value.playTime
+          : playTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      numberOfPlayers: null == numberOfPlayers
+          ? _value.numberOfPlayers
+          : numberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int,
       isNeedHost: null == isNeedHost
           ? _value.isNeedHost
           : isNeedHost // ignore: cast_nullable_to_non_nullable
               as bool,
+      minNumberOfPlayers: freezed == minNumberOfPlayers
+          ? _value.minNumberOfPlayers
+          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -110,18 +122,6 @@ class _$ScenarioCopyWithImpl<$Res, $Val extends Scenario>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      maxNumberOfPlayers: freezed == maxNumberOfPlayers
-          ? _value.maxNumberOfPlayers
-          : maxNumberOfPlayers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minNumberOfPlayers: freezed == minNumberOfPlayers
-          ? _value.minNumberOfPlayers
-          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      playTime: freezed == playTime
-          ? _value.playTime
-          : playTime // ignore: cast_nullable_to_non_nullable
-              as Duration?,
     ) as $Val);
   }
 }
@@ -139,12 +139,12 @@ abstract class _$$_ScenarioCopyWith<$Res> implements $ScenarioCopyWith<$Res> {
       String name,
       String kana,
       String author,
+      Duration playTime,
+      int numberOfPlayers,
       bool isNeedHost,
-      String? url,
-      String? image,
-      int? maxNumberOfPlayers,
       int? minNumberOfPlayers,
-      Duration? playTime});
+      String? url,
+      String? image});
 }
 
 /// @nodoc
@@ -163,12 +163,12 @@ class __$$_ScenarioCopyWithImpl<$Res>
     Object? name = null,
     Object? kana = null,
     Object? author = null,
+    Object? playTime = null,
+    Object? numberOfPlayers = null,
     Object? isNeedHost = null,
+    Object? minNumberOfPlayers = freezed,
     Object? url = freezed,
     Object? image = freezed,
-    Object? maxNumberOfPlayers = freezed,
-    Object? minNumberOfPlayers = freezed,
-    Object? playTime = freezed,
   }) {
     return _then(_$_Scenario(
       id: null == id
@@ -191,10 +191,22 @@ class __$$_ScenarioCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
+      playTime: null == playTime
+          ? _value.playTime
+          : playTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      numberOfPlayers: null == numberOfPlayers
+          ? _value.numberOfPlayers
+          : numberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int,
       isNeedHost: null == isNeedHost
           ? _value.isNeedHost
           : isNeedHost // ignore: cast_nullable_to_non_nullable
               as bool,
+      minNumberOfPlayers: freezed == minNumberOfPlayers
+          ? _value.minNumberOfPlayers
+          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
+              as int?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -203,18 +215,6 @@ class __$$_ScenarioCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      maxNumberOfPlayers: freezed == maxNumberOfPlayers
-          ? _value.maxNumberOfPlayers
-          : maxNumberOfPlayers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minNumberOfPlayers: freezed == minNumberOfPlayers
-          ? _value.minNumberOfPlayers
-          : minNumberOfPlayers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      playTime: freezed == playTime
-          ? _value.playTime
-          : playTime // ignore: cast_nullable_to_non_nullable
-              as Duration?,
     ));
   }
 }
@@ -228,22 +228,19 @@ class _$_Scenario extends _Scenario {
       required this.name,
       required this.kana,
       required this.author,
+      required this.playTime,
+      required this.numberOfPlayers,
       this.isNeedHost = true,
-      this.url,
-      this.image,
-      this.maxNumberOfPlayers,
       this.minNumberOfPlayers,
-      this.playTime})
+      this.url,
+      this.image})
       : assert(minNumberOfPlayers == null || !minNumberOfPlayers!.isNegative,
             '最小PL数が負の値になっています'),
-        assert(maxNumberOfPlayers == null || !maxNumberOfPlayers!.isNegative,
-            '最大PL数が負の値になっています'),
+        assert(!numberOfPlayers!.isNegative, 'PL数が負の値になっています'),
         assert(
-            minNumberOfPlayers == null ||
-                maxNumberOfPlayers == null ||
-                minNumberOfPlayers <= maxNumberOfPlayers,
+            minNumberOfPlayers == null || minNumberOfPlayers < numberOfPlayers,
             'PL数の整合性が取れていません'),
-        assert(playTime == null || !playTime!.isNegative, 'プレイ時間が負の値になっています'),
+        assert(!playTime!.isNegative, 'プレイ時間が負の値になっています'),
         super._();
 
   @override
@@ -257,22 +254,22 @@ class _$_Scenario extends _Scenario {
   @override
   final String author;
   @override
+  final Duration playTime;
+  @override
+  final int numberOfPlayers;
+  @override
   @JsonKey()
   final bool isNeedHost;
+  @override
+  final int? minNumberOfPlayers;
   @override
   final String? url;
   @override
   final String? image;
-  @override
-  final int? maxNumberOfPlayers;
-  @override
-  final int? minNumberOfPlayers;
-  @override
-  final Duration? playTime;
 
   @override
   String toString() {
-    return 'Scenario(id: $id, system: $system, name: $name, kana: $kana, author: $author, isNeedHost: $isNeedHost, url: $url, image: $image, maxNumberOfPlayers: $maxNumberOfPlayers, minNumberOfPlayers: $minNumberOfPlayers, playTime: $playTime)';
+    return 'Scenario(id: $id, system: $system, name: $name, kana: $kana, author: $author, playTime: $playTime, numberOfPlayers: $numberOfPlayers, isNeedHost: $isNeedHost, minNumberOfPlayers: $minNumberOfPlayers, url: $url, image: $image)';
   }
 
   @override
@@ -285,21 +282,21 @@ class _$_Scenario extends _Scenario {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.kana, kana) || other.kana == kana) &&
             (identical(other.author, author) || other.author == author) &&
+            (identical(other.playTime, playTime) ||
+                other.playTime == playTime) &&
+            (identical(other.numberOfPlayers, numberOfPlayers) ||
+                other.numberOfPlayers == numberOfPlayers) &&
             (identical(other.isNeedHost, isNeedHost) ||
                 other.isNeedHost == isNeedHost) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.maxNumberOfPlayers, maxNumberOfPlayers) ||
-                other.maxNumberOfPlayers == maxNumberOfPlayers) &&
             (identical(other.minNumberOfPlayers, minNumberOfPlayers) ||
                 other.minNumberOfPlayers == minNumberOfPlayers) &&
-            (identical(other.playTime, playTime) ||
-                other.playTime == playTime));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, system, name, kana, author,
-      isNeedHost, url, image, maxNumberOfPlayers, minNumberOfPlayers, playTime);
+      playTime, numberOfPlayers, isNeedHost, minNumberOfPlayers, url, image);
 
   @JsonKey(ignore: true)
   @override
@@ -315,12 +312,12 @@ abstract class _Scenario extends Scenario {
       required final String name,
       required final String kana,
       required final String author,
+      required final Duration playTime,
+      required final int numberOfPlayers,
       final bool isNeedHost,
-      final String? url,
-      final String? image,
-      final int? maxNumberOfPlayers,
       final int? minNumberOfPlayers,
-      final Duration? playTime}) = _$_Scenario;
+      final String? url,
+      final String? image}) = _$_Scenario;
   const _Scenario._() : super._();
 
   @override
@@ -334,17 +331,17 @@ abstract class _Scenario extends Scenario {
   @override
   String get author;
   @override
+  Duration get playTime;
+  @override
+  int get numberOfPlayers;
+  @override
   bool get isNeedHost;
+  @override
+  int? get minNumberOfPlayers;
   @override
   String? get url;
   @override
   String? get image;
-  @override
-  int? get maxNumberOfPlayers;
-  @override
-  int? get minNumberOfPlayers;
-  @override
-  Duration? get playTime;
   @override
   @JsonKey(ignore: true)
   _$$_ScenarioCopyWith<_$_Scenario> get copyWith =>
