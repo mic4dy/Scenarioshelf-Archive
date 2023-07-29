@@ -64,7 +64,6 @@ class ScenarioCard extends StatelessWidget {
                         color: AppColor.text.gray,
                         fontWeight: FontWeight.w500,
                         fontSize: 10,
-                        height: 1,
                       ),
                     ),
                     const SizedBox(height: MarginSize.small),
