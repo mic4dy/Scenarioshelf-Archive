@@ -120,7 +120,8 @@ class _$_Schedule implements _Schedule {
   const _$_Schedule(
       {required this.startDate,
       this.type = ScheduleType.implementation,
-      this.playTime});
+      this.playTime})
+      : assert(playTime == null || !playTime!.isNegative, 'プレイ時間が負の値になっています');
 
   factory _$_Schedule.fromJson(Map<String, dynamic> json) =>
       _$$_ScheduleFromJson(json);

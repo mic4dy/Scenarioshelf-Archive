@@ -6,6 +6,7 @@ part 'schedule_type.dart';
 
 @freezed
 class Schedule with _$Schedule {
+  @Assert('playTime == null || !playTime!.isNegative', 'プレイ時間が負の値になっています')
   const factory Schedule({
     required DateTime startDate,
     @Default(ScheduleType.implementation) ScheduleType type,
