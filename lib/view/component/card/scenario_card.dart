@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scenarioshelf/constant/app_color.dart';
+import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/model/scenario/scenario.dart';
 
 class ScenarioCard extends StatelessWidget {
@@ -12,32 +13,54 @@ class ScenarioCard extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return SizedBox(
       width: double.infinity,
-      height: 256,
       child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         color: AppColor.ui.white,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: scenario.system.color,
-            width: 2,
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Image.network(
-                scenario.image!,
+        child: Padding(
+          padding: const EdgeInsets.all(PaddingSize.small),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox.square(
+                dimension: size.width * 0.25,
+                child: Container(
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: scenario.image != null
+                      ? Image.network(
+                        scenario.image!,
+                        fit: BoxFit.cover,
+                      )
+                      : Container(
+                        color: AppColor.ui.success,
+                      ),
+                ),
               ),
-            ),
-            Expanded(
-              flex: 7,
-              child: Container(),
-            ),
-          ],
+              const SizedBox(width: MarginSize.small),
+              Flexible(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      scenario.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -53,12 +53,15 @@ class Scenarioshelf extends ConsumerWidget {
       ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
         bodyMedium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
         bodyLarge: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
       ),

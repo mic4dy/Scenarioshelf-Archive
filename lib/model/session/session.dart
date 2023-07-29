@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scenarioshelf/model/session/schedule.dart';
 import 'package:scenarioshelf/util/exception/convert_exception.dart';
 
 part 'session.freezed.dart';
@@ -12,7 +13,7 @@ class Session with _$Session {
     required String scenarioId,
     required DateTime createdAt,
     required DateTime updatedAt,
-    DateTime? eventDate,
+    List<Schedule>? schedules,
     String? charactor,
     String? memo,
   }) = _Session;
@@ -26,7 +27,9 @@ class Session with _$Session {
       id: sessionRef.id,
       userId: data['userId'] as String,
       scenarioId: data['scenarioId'] as String,
-      eventDate: data['eventDate'] is Timestamp ? (data['eventDate'] as Timestamp).toDate() : null,
+      schedules: data['schedules'] is Iterable<Map<String, dynamic>>
+          ? (data['schedules'] as Iterable<Map<String, dynamic>>).map(Schedule.fromJson).toList()
+          : null,
       charactor: data['charactor'] as String?,
       memo: data['memo'] as String?,
       createdAt: (data['createdAt'] as Timestamp).toDate(),

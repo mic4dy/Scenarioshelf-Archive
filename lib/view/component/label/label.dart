@@ -30,7 +30,7 @@ class Label extends StatelessWidget {
             color: AppColor.text.primary,
             fontSize: FontSize.label,
             fontFamily: FontFamily.iBMPlexSansJP,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w400,
             letterSpacing: SpaceSize.label,
             height: 1,
           ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:scenarioshelf/model/session/schedule.dart';
 import 'package:scenarioshelf/model/session/session.dart';
 import 'package:scenarioshelf/repository/remote/firebase/firestore/firestore_api.dart';
 
@@ -17,7 +18,7 @@ abstract interface class SessionRemoteRepositoryAPI {
   Future<Session> create({
     required String scenarioId,
     required String userId,
-    DateTime? eventDate,
+    List<Schedule>? schedules,
     String? charactor,
     String? memo,
   });
@@ -38,14 +39,14 @@ class SessionRemoteRepository implements SessionRemoteRepositoryAPI {
   Future<Session> create({
     required String scenarioId,
     required String userId,
-    DateTime? eventDate,
+    List<Schedule>? schedules,
     String? charactor,
     String? memo,
   }) async {
     final session = <String, dynamic>{
       'scenarioId': scenarioId,
       'userId': userId,
-      if (eventDate != null) 'eventDate': eventDate,
+      if (schedules != null) 'schedules': schedules.map((schedule) => schedule.toJson()).toList(),
       if (charactor != null) 'charactor': charactor,
       if (memo != null) 'memo': memo,
       'createdAt': FieldValue.serverTimestamp(),
@@ -75,7 +76,7 @@ class SessionRemoteRepository implements SessionRemoteRepositoryAPI {
   @override
   Future<Session> update({required Session session}) async {
     await database.doc(session.id).update({
-      if (session.eventDate != null) 'eventDate': session.eventDate,
+      if (session.schedules != null) 'schedules': session.schedules!.map((schedule) => schedule.toJson()).toList(),
       if (session.charactor != null) 'charactor': session.charactor,
       if (session.memo != null) 'memo': session.memo,
       'updatedAt': FieldValue.serverTimestamp(),
