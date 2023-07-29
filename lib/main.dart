@@ -40,18 +40,28 @@ class Scenarioshelf extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
     final theme = ThemeData(
-      useMaterial3: true,
       fontFamily: FontFamily.iBMPlexSansJP,
+      colorScheme: Theme.of(context).colorScheme.copyWith(
+        primary: AppColor.brand.primary,
+        secondary: AppColor.brand.primaryLight,
+      ),
       scaffoldBackgroundColor: AppColor.ui.white,
-      colorSchemeSeed: AppColor.brand.primary,
+      bottomSheetTheme: Theme.of(context).bottomSheetTheme.copyWith(
+        backgroundColor: AppColor.ui.white,
+        modalBackgroundColor: AppColor.ui.white,
+        surfaceTintColor: AppColor.ui.white,
+      ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
         bodyMedium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
         bodyLarge: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          fontFamily: FontFamily.iBMPlexSansJP,
           fontWeight: FontWeight.w300,
         ),
       ),

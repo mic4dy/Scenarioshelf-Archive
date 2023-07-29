@@ -21,7 +21,7 @@ mixin _$Session {
   String get scenarioId => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  DateTime? get eventDate => throw _privateConstructorUsedError;
+  List<Schedule>? get schedules => throw _privateConstructorUsedError;
   String? get charactor => throw _privateConstructorUsedError;
   String? get memo => throw _privateConstructorUsedError;
 
@@ -40,7 +40,7 @@ abstract class $SessionCopyWith<$Res> {
       String scenarioId,
       DateTime createdAt,
       DateTime updatedAt,
-      DateTime? eventDate,
+      List<Schedule>? schedules,
       String? charactor,
       String? memo});
 }
@@ -63,7 +63,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? scenarioId = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? eventDate = freezed,
+    Object? schedules = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -88,10 +88,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      eventDate: freezed == eventDate
-          ? _value.eventDate
-          : eventDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      schedules: freezed == schedules
+          ? _value.schedules
+          : schedules // ignore: cast_nullable_to_non_nullable
+              as List<Schedule>?,
       charactor: freezed == charactor
           ? _value.charactor
           : charactor // ignore: cast_nullable_to_non_nullable
@@ -117,7 +117,7 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       String scenarioId,
       DateTime createdAt,
       DateTime updatedAt,
-      DateTime? eventDate,
+      List<Schedule>? schedules,
       String? charactor,
       String? memo});
 }
@@ -137,7 +137,7 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? scenarioId = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? eventDate = freezed,
+    Object? schedules = freezed,
     Object? charactor = freezed,
     Object? memo = freezed,
   }) {
@@ -162,10 +162,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      eventDate: freezed == eventDate
-          ? _value.eventDate
-          : eventDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      schedules: freezed == schedules
+          ? _value._schedules
+          : schedules // ignore: cast_nullable_to_non_nullable
+              as List<Schedule>?,
       charactor: freezed == charactor
           ? _value.charactor
           : charactor // ignore: cast_nullable_to_non_nullable
@@ -187,9 +187,10 @@ class _$_Session implements _Session {
       required this.scenarioId,
       required this.createdAt,
       required this.updatedAt,
-      this.eventDate,
+      final List<Schedule>? schedules,
       this.charactor,
-      this.memo});
+      this.memo})
+      : _schedules = schedules;
 
   @override
   final String id;
@@ -201,8 +202,16 @@ class _$_Session implements _Session {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
+  final List<Schedule>? _schedules;
   @override
-  final DateTime? eventDate;
+  List<Schedule>? get schedules {
+    final value = _schedules;
+    if (value == null) return null;
+    if (_schedules is EqualUnmodifiableListView) return _schedules;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? charactor;
   @override
@@ -210,7 +219,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, userId: $userId, scenarioId: $scenarioId, createdAt: $createdAt, updatedAt: $updatedAt, eventDate: $eventDate, charactor: $charactor, memo: $memo)';
+    return 'Session(id: $id, userId: $userId, scenarioId: $scenarioId, createdAt: $createdAt, updatedAt: $updatedAt, schedules: $schedules, charactor: $charactor, memo: $memo)';
   }
 
   @override
@@ -226,16 +235,24 @@ class _$_Session implements _Session {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            (identical(other.eventDate, eventDate) ||
-                other.eventDate == eventDate) &&
+            const DeepCollectionEquality()
+                .equals(other._schedules, _schedules) &&
             (identical(other.charactor, charactor) ||
                 other.charactor == charactor) &&
             (identical(other.memo, memo) || other.memo == memo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, scenarioId,
-      createdAt, updatedAt, eventDate, charactor, memo);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userId,
+      scenarioId,
+      createdAt,
+      updatedAt,
+      const DeepCollectionEquality().hash(_schedules),
+      charactor,
+      memo);
 
   @JsonKey(ignore: true)
   @override
@@ -251,7 +268,7 @@ abstract class _Session implements Session {
       required final String scenarioId,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      final DateTime? eventDate,
+      final List<Schedule>? schedules,
       final String? charactor,
       final String? memo}) = _$_Session;
 
@@ -266,7 +283,7 @@ abstract class _Session implements Session {
   @override
   DateTime get updatedAt;
   @override
-  DateTime? get eventDate;
+  List<Schedule>? get schedules;
   @override
   String? get charactor;
   @override

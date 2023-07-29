@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:scenarioshelf/view/boot/boot_page.dart';
+import 'package:scenarioshelf/view/home/home_page.dart';
 import 'package:scenarioshelf/view/signing/signin/signin_page.dart';
 import 'package:scenarioshelf/view/signing/signup/signup_page.dart';
 import 'package:scenarioshelf/view_model/universal/user/user_view_model.dart';
@@ -38,7 +38,7 @@ GoRouter router(RouterRef ref) {
       ),
       GoRoute(
         path: Routes.home.path,
-        builder: (context, state) => const Scaffold(),
+        builder: (context, state) => const HomePage(),
       ),
     ],
   );
