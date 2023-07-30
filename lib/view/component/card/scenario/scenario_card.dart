@@ -19,6 +19,7 @@ class ScenarioCard extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
+        margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         color: AppColor.ui.white,
         shape: const RoundedRectangleBorder(
