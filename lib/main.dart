@@ -47,9 +47,9 @@ class Scenarioshelf extends ConsumerWidget {
       ),
       scaffoldBackgroundColor: AppColor.ui.white,
       bottomSheetTheme: Theme.of(context).bottomSheetTheme.copyWith(
-        backgroundColor: AppColor.ui.white,
-        modalBackgroundColor: AppColor.ui.white,
-        surfaceTintColor: AppColor.ui.white,
+        backgroundColor: AppColor.brand.primary,
+        modalBackgroundColor: AppColor.brand.primary,
+        surfaceTintColor: AppColor.brand.primary,
       ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodySmall: Theme.of(context).textTheme.bodySmall?.copyWith(
