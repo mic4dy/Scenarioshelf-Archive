@@ -3,6 +3,7 @@ import 'package:scenarioshelf/constant/app_color.dart';
 import 'package:scenarioshelf/constant/app_size.dart';
 import 'package:scenarioshelf/model/scenario/scenario.dart';
 import 'package:scenarioshelf/view/component/card/scenario/scenario_property_label.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ScenarioCard extends StatelessWidget {
   const ScenarioCard({
@@ -41,6 +42,17 @@ class ScenarioCard extends StatelessWidget {
                       ? Image.network(
                         scenario.image!,
                         fit: BoxFit.cover,
+                        loadingBuilder: (_, child, loadingProgress) => loadingProgress == null
+                            ? child
+                            : Shimmer.fromColors(
+                                baseColor: AppColor.ui.shimmerBase,
+                                highlightColor: AppColor.ui.white,
+                                child: Container(
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  color: AppColor.ui.white,
+                                ),
+                              ),
                         errorBuilder: (_, __, ___) => _noImage(),
                       )
                       : _noImage(),

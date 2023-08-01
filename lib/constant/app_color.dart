@@ -20,6 +20,7 @@ class _UI {
   final Color success = const Color(0xFF00ff33);
   final Color loading = const Color(0xFFffb300);
   final Color error = const Color(0xFFff3300);
+  final Color shimmerBase = const Color(0xFFf5f5f5);
 }
 
 class _Text {
