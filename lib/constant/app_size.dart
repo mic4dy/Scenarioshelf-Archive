@@ -5,14 +5,15 @@ class FontSize {
 class MarginSize {
   static const double minimum = 4;
   static const double small = 8;
-  static const double middle = 16;
+  static const double little = 12;
+  static const double medium = 16;
   static const double large = 32; 
 }
 
 class PaddingSize {
   static const double minimum = 4;
   static const double small = 8;
-  static const double middle = 16;
+  static const double medium = 16;
   static const double large = 32; 
 }
 

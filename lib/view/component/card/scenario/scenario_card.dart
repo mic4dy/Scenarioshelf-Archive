@@ -58,7 +58,7 @@ class ScenarioCard extends StatelessWidget {
                       : _noImage(),
                 ),
               ),
-              const SizedBox(width: MarginSize.middle),
+              const SizedBox(width: MarginSize.medium),
               Flexible(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -72,7 +72,7 @@ class ScenarioCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      scenario.kana,
+                      scenario.author,
                       style: TextStyle(
                         color: AppColor.text.gray,
                         fontWeight: FontWeight.w500,
