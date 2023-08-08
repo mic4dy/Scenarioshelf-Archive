@@ -8,7 +8,7 @@ class AppSnackBar extends SnackBar {
     this.color,
     super.key,
   }) : super(
-    padding: const EdgeInsets.only(left: PaddingSize.middle),
+    padding: const EdgeInsets.only(left: PaddingSize.medium),
     behavior: SnackBarBehavior.floating,
     elevation: 4,
     shape: RoundedRectangleBorder(
@@ -43,7 +43,7 @@ class AppSnackBar extends SnackBar {
               color: AppColor.ui.success,
             ),
           ),
-          const SizedBox(width: MarginSize.middle),
+          const SizedBox(width: MarginSize.medium),
           Flexible(
             child: DefaultTextStyle(
               style: TextStyle(
@@ -80,7 +80,7 @@ class AppSnackBar extends SnackBar {
               color: AppColor.ui.loading,
             ),
           ),
-          const SizedBox(width: MarginSize.middle),
+          const SizedBox(width: MarginSize.medium),
           Flexible(
             child: DefaultTextStyle(
               style: TextStyle(
@@ -115,7 +115,7 @@ class AppSnackBar extends SnackBar {
             color: AppColor.ui.error,
           ),
         ),
-        const SizedBox(width: MarginSize.middle),
+        const SizedBox(width: MarginSize.medium),
         Flexible(
           child: DefaultTextStyle(
             style: TextStyle(
