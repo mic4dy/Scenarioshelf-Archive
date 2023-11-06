@@ -34,6 +34,7 @@ class RecordSectionPanel extends StatelessWidget {
               color: AppColor.brand.primary,
               fontFamily: FontFamily.iBMPlexSansJP,
               fontSize: FontSize.label,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const Divider(height: MarginSize.large),
